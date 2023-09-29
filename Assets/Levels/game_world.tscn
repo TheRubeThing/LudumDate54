@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Player.gd" id="1_p3pah"]
 [ext_resource type="Texture2D" uid="uid://cow6yghmik1cp" path="res://icon.svg" id="2_lgpel"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://Assets/Scripts/Camera2D.gd" id="4_f5tr5"]
 [ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="5_li7rt"]
 
@@ -19,6 +20,9 @@ func _ready():
 func _process(delta):
 	target = mouse.position
 "
+=======
+[ext_resource type="Script" path="res://PlayerCamera.gd" id="3_ugs8n"]
+>>>>>>> master
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmhf"]
 
@@ -40,8 +44,15 @@ shape = SubResource("RectangleShape2D_jhmhf")
 scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_lgpel")
 
+<<<<<<< HEAD
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_f5tr5")
 target = NodePath("../Player")
 
 [node name="Enemy" parent="." instance=ExtResource("5_li7rt")]
+=======
+[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_ugs8n")
+target = NodePath("../Player")
+camera_speed = 200
+>>>>>>> master
