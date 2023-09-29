@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dslioq228hkpj"]
+
+[ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="1_bg7ps"]
+[ext_resource type="Texture2D" uid="uid://cow6yghmik1cp" path="res://icon.svg" id="2_4bl6m"]
+[ext_resource type="Script" path="res://Assets/Scripts/EnemyTarget.gd" id="2_hkfvb"]
+
+[node name="enemy_test" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_bg7ps")]
+
+[node name="Target" type="Sprite2D" parent="."]
+position = Vector2(241, 145)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_4bl6m")
+script = ExtResource("2_hkfvb")
