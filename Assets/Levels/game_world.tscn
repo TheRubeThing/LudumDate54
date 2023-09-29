@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player.gd" id="1_p3pah"]
 [ext_resource type="Texture2D" uid="uid://cow6yghmik1cp" path="res://icon.svg" id="2_lgpel"]
-[ext_resource type="Script" path="res://Assets/Levels/Camera2D.gd" id="3_ob0vi"]
+[ext_resource type="Script" path="res://PlayerCamera.gd" id="3_ugs8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmhf"]
 
@@ -23,6 +23,7 @@ shape = SubResource("RectangleShape2D_jhmhf")
 scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_lgpel")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("3_ob0vi")
+[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_ugs8n")
 target = NodePath("../Player")
+camera_speed = 200
