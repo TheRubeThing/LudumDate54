@@ -1,11 +1,11 @@
 extends Camera2D
 
 @export var target : Node2D
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+@export var camera_speed : int
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position = target.position
+	var diff = target.position - position
+	position += diff * delta * camera_speed / 100
+	
