@@ -8,7 +8,7 @@ func _physics_process(delta):
 
 	var direction_x = Input.get_axis("A_left", "D_right")
 	var direction_y = Input.get_axis("W_up", "S_down")
-	
+
 	if direction_x || direction_y:
 		velocity.x = direction_x * SPEED
 		velocity.y = direction_y * SPEED
