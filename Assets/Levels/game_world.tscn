@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bip1sdin0iscv"]
+[gd_scene load_steps=10 format=3 uid="uid://bip1sdin0iscv"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_p3pah"]
+[ext_resource type="Script" path="res://Assets/Scripts/GameController.gd" id="1_g7cao"]
 [ext_resource type="Texture2D" uid="uid://cow6yghmik1cp" path="res://icon.svg" id="2_lgpel"]
-[ext_resource type="Script" path="res://PlayerCamera.gd" id="3_ugs8n"]
+[ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="3_x5yy2"]
+[ext_resource type="Script" path="res://Assets/Scripts/HUD.gd" id="4_na2py"]
+[ext_resource type="Script" path="res://Assets/Scripts/PlayerCamera.gd" id="4_ru4v0"]
+[ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="5_2ci8w"]
+[ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="6_f43gg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmhf"]
 
+[sub_resource type="Theme" id="Theme_pbdts"]
+
 [node name="GameWorld" type="Node2D"]
+script = ExtResource("1_g7cao")
 
 [node name="Sprite2" type="Sprite2D" parent="."]
 position = Vector2(-0.835, 40)
@@ -14,7 +21,7 @@ scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_lgpel")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_p3pah")
+script = ExtResource("3_x5yy2")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_jhmhf")
@@ -24,6 +31,40 @@ scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_lgpel")
 
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("3_ugs8n")
+zoom = Vector2(3, 3)
+script = ExtResource("4_ru4v0")
 target = NodePath("../Player")
 camera_speed = 200
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_na2py")
+
+[node name="Menu" type="Button" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -53.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Menu"
+
+[node name="UIHealthBar" type="ProgressBar" parent="HUD"]
+offset_right = 200.0
+offset_bottom = 30.0
+tooltip_text = "Health"
+theme = ExtResource("5_2ci8w")
+value = 46.0
+show_percentage = false
+script = ExtResource("6_f43gg")
+diffSpeed = 300
+
+[node name="DiffBar" type="ProgressBar" parent="HUD/UIHealthBar"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 30.0
+theme = SubResource("Theme_pbdts")
+value = 80.0
+show_percentage = false
+
+[connection signal="change_player_health" from="." to="HUD/UIHealthBar" method="_on_game_world_change_player_health"]
