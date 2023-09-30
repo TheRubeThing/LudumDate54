@@ -105,10 +105,9 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 script = ExtResource("1_b2sxo")
 
-[node name="Stats" type="Node" parent="." node_paths=PackedStringArray("hit_box")]
+[node name="Stats" type="Node" parent="."]
 script = ExtResource("5_gap5a")
 max_health = 100
-hit_box = NodePath("")
 group = 1
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
