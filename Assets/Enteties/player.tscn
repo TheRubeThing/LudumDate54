@@ -1,13 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://cotx6ag8y33tm"]
+[gd_scene load_steps=20 format=3 uid="uid://cotx6ag8y33tm"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_b2sxo"]
 [ext_resource type="Texture2D" uid="uid://dlf0ix8htpxuy" path="res://Assets/Sprites/Sprite Sheets/Main_Character.png" id="2_blr27"]
+[ext_resource type="Shader" path="res://Assets/Shaders/flashShader.gdshader" id="3_ef2ur"]
 [ext_resource type="Script" path="res://Assets/Enteties/PlayerAnimationController.gd" id="3_f3fu1"]
 [ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="4_4ockk"]
 [ext_resource type="Script" path="res://Assets/Scripts/Stats.gd" id="5_gap5a"]
+[ext_resource type="Script" path="res://Assets/Enteties/FlashAnimationPlayer.gd" id="6_0vpv3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyy7x"]
 radius = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijo8g"]
+shader = ExtResource("3_ef2ur")
+shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghd1a"]
 atlas = ExtResource("2_blr27")
@@ -57,29 +63,72 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_hqvi6"]
+resource_name = "Flash"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kfmnl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2clbe"]
+_data = {
+"Flash": SubResource("Animation_hqvi6"),
+"RESET": SubResource("Animation_kfmnl")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ig5c"]
 
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 script = ExtResource("1_b2sxo")
 
-[node name="Stats" type="Node" parent="."]
+[node name="Stats" type="Node" parent="." node_paths=PackedStringArray("hit_box")]
 script = ExtResource("5_gap5a")
 max_health = 100
+hit_box = NodePath("")
 group = 1
-hit_box = Object(Area2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":1,"collision_mask":1,"collision_priority":1.0,"input_pickable":true,"monitoring":true,"monitorable":true,"priority":0,"gravity_space_override":0,"gravity_point":false,"gravity_point_unit_distance":0.0,"gravity_point_center":Vector2(0, 1),"gravity_direction":Vector2(0, 1),"gravity":980.0,"linear_damp_space_override":0,"linear_damp":0.1,"angular_damp_space_override":0,"angular_damp":1.0,"audio_bus_override":false,"audio_bus_name":&"Master","script":ExtResource("4_4ockk"),"group":1)
-
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vyy7x")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_ijo8g")
 sprite_frames = SubResource("SpriteFrames_tgl5t")
 animation = &"Idle"
 script = ExtResource("3_f3fu1")
 
+[node name="FlashAnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+speed_scale = 20.0
+libraries = {
+"": SubResource("AnimationLibrary_2clbe")
+}
+script = ExtResource("6_0vpv3")
+
 [node name="HitBox" type="Area2D" parent="."]
-visible = false
 script = ExtResource("4_4ockk")
 group = 1
 
@@ -89,3 +138,4 @@ shape = SubResource("RectangleShape2D_1ig5c")
 [connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
 [connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
 [connection signal="hit" from="HitBox" to="Stats" method="_on_hit_box_hit"]
+[connection signal="hit" from="HitBox" to="Sprite/FlashAnimationPlayer" method="_on_hit_box_hit"]
