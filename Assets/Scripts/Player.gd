@@ -1,20 +1,13 @@
 extends CharacterBody2D
 
-<<<<<<< HEAD
-@export var push_back_factor: int = 100
-=======
 @export var health: Resource
 @export var push_back_factor: int = 100
 @export var pushback_decay: float = 0.8
->>>>>>> ruben
 
 const SPEED = 100.0
 
 var equipped_item_instance: Item
 var pushback_velocity = Vector2(0,0)
-
-func _ready():
-	pass
 
 func equip_item(item: PackedScene) -> bool :
 	if (equipped_item_instance == null):
@@ -68,12 +61,8 @@ func _physics_process(delta):
 
 
 func _recoil(dir, amount):
-<<<<<<< HEAD
-	position += dir * amount * push_back_factor / 100
-=======
 	print(dir)
 	pushback_velocity = dir * amount * push_back_factor
->>>>>>> ruben
 
 
 func _on_hit_box_hit(dmg, dmg_pos):

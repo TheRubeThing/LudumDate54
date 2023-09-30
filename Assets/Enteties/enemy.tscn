@@ -4,8 +4,6 @@
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
 [ext_resource type="Texture2D" uid="uid://d0e073t15tnav" path="res://Assets/Sprites/Sprite Sheets/Arg_Sheet.png" id="4_e676d"]
 [ext_resource type="Script" path="res://Assets/Scripts/DetectionRange.gd" id="4_enc4k"]
-[ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="5_kx04u"]
-[ext_resource type="Script" path="res://Assets/Scripts/Stats.gd" id="6_lc0oe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dene"]
 
@@ -48,15 +46,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6erjy"]
-
 [node name="Enemy" type="CharacterBody2D" groups=["ENEMIES"]]
 script = ExtResource("1_43sha")
-
-[node name="Stats" type="Node" parent="." node_paths=PackedStringArray("hit_box")]
-script = ExtResource("6_lc0oe")
-max_health = 100
-hit_box = NodePath("")
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3dene")
@@ -78,15 +69,5 @@ animation = &"new_animation"
 frame = 3
 frame_progress = 0.451446
 
-[node name="HitBox" type="Area2D" parent="."]
-visible = false
-script = ExtResource("5_kx04u")
-
-[node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("RectangleShape2D_6erjy")
-
 [connection signal="body_entered" from="DetectionRange" to="Brain" method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="Brain" method="_on_detection_range_body_exited"]
-[connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
-[connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
-[connection signal="hit" from="HitBox" to="Stats" method="_on_hit_box_hit"]
