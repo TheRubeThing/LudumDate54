@@ -18,12 +18,10 @@ func remove_target():
 	_target = null
 	
 func _on_detection_range_body_entered(body):
-	print("body entered")
 	if body.is_in_group("PLAYER"):
 		add_target(body)
 
 
 func _on_detection_range_body_exited(body):
-	print("body exited")
 	if body.is_in_group("PLAYER"):
 		remove_target()
