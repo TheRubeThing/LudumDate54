@@ -1,10 +1,22 @@
+
 [gd_scene load_steps=11 format=3 uid="uid://cotx6ag8y33tm"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_b2sxo"]
 [ext_resource type="Texture2D" uid="uid://dlf0ix8htpxuy" path="res://Assets/Sprites/Sprite Sheets/Main_Character.png" id="2_blr27"]
 [ext_resource type="Script" path="res://Assets/Enteties/PlayerAnimationController.gd" id="3_f3fu1"]
+[ext_resource type="Texture2D" uid="uid://cow6yghmik1cp" path="res://icon.svg" id="2_0fl32"]
+[ext_resource type="Script" path="res://Assets/Scripts/Resources/PlayerHealth.gd" id="2_gvmg3"]
+[ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="4_4ockk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmhf"]
+[sub_resource type="Resource" id="Resource_7dxbc"]
+resource_name = "PlayerHealth"
+script = ExtResource("2_gvmg3")
+max_health = 100
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyy7x"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ig5c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghd1a"]
 atlas = ExtResource("2_blr27")
@@ -56,12 +68,31 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 script = ExtResource("1_b2sxo")
+health = SubResource("Resource_7dxbc")
+push_back_factor = 100
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_jhmhf")
+shape = SubResource("CircleShape2D_vyy7x")
 
+<<<<<<< HEAD
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tgl5t")
 animation = &"Idle"
 script = ExtResource("3_f3fu1")
+=======
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_0fl32")
+
+[node name="PlayerHitBox" type="Area2D" parent="."]
+visible = false
+script = ExtResource("4_4ockk")
+group = 1
+
+[node name="HitBoxCollision" type="CollisionShape2D" parent="PlayerHitBox"]
+shape = SubResource("RectangleShape2D_1ig5c")
+
+[connection signal="body_entered" from="PlayerHitBox" to="PlayerHitBox" method="_on_body_entered"]
+[connection signal="hit" from="PlayerHitBox" to="." method="_on_player_hit_box_hit"]
+>>>>>>> master

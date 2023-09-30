@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var health: Resource
+@export var push_back_factor: int
 
 const SPEED = 100.0
 
@@ -21,3 +23,15 @@ func _physics_process(delta):
 	velocity = velocity.normalized() * SPEED
 
 	move_and_slide()
+
+
+func _recoil(dir, amount):
+	print(dir)
+	position += dir * amount * push_back_factor / 100
+
+
+func _on_player_hit_box_hit(dmg, dmg_pos):
+	health.take_damage(dmg)
+	var recoil_dir = (position - dmg_pos).normalized()
+	_recoil(recoil_dir, dmg)
+	

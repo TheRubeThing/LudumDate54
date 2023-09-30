@@ -7,8 +7,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dene"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ljv60"]
-radius = 385.469
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l2t1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi283"]
 atlas = ExtResource("4_e676d")
@@ -59,7 +58,7 @@ script = ExtResource("3_vj3i5")
 script = ExtResource("4_enc4k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
-shape = SubResource("CircleShape2D_ljv60")
+shape = SubResource("RectangleShape2D_8l2t1")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
