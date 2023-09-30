@@ -1,4 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
-
+Assets/Levels/Playgrounds/GunTest.tscn
 **/.DS_Store
