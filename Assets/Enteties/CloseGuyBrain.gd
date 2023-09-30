@@ -8,3 +8,4 @@ func think(current_local_position) -> Vector2:
 		return direction
 	else:
 		return super.think(current_local_position)
+		
