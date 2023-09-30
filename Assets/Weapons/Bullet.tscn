@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgb3mt54qgqu8"]
 
-[ext_resource type="Texture2D" uid="uid://7oyplfnh3wrt" path="res://Assets/Sprites/SnowpHat.png" id="1_m0mo6"]
 [ext_resource type="Script" path="res://Assets/Weapons/Bullet.gd" id="1_qbkfh"]
+[ext_resource type="Texture2D" uid="uid://bnqqysv251qqu" path="res://Assets/Sprites/Bullet.png" id="2_t4ejx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rxk5"]
 radius = 8.0
@@ -12,7 +12,7 @@ texture_filter = 1
 script = ExtResource("1_qbkfh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_m0mo6")
+texture = ExtResource("2_t4ejx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 2
