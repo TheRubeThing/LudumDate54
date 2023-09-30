@@ -1,14 +1,11 @@
-extends Sprite2D
+extends Item
 
 @export var weapon_stats: WeaponStats
 @export var bullet : PackedScene
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,13 +16,12 @@ func _process(delta):
 		flip_v = true
 	else:
 		flip_v = false
-	
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
 
+func action():
+	shoot()
 
 func shoot():
-	var bullet_instance = bullet.instantiate()
+	var bullet_instance = self.bullet.instantiate()
 	bullet_instance.set_bullet_speed(weapon_stats.bullet_speed)
-	owner.add_child(bullet_instance)
+	get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.transform = $Muzzle.global_transform

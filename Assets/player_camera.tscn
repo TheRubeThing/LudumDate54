@@ -1,11 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0wi6s3vqqspx"]
+[gd_scene load_steps=2 format=3 uid="uid://bfudmml80lruv"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/PlayerCamera.gd" id="1_rhgek"]
 
-[node name="PlayerCamera" type="Camera2D" node_paths=PackedStringArray("player_target")]
-zoom = Vector2(3, 3)
+[node name="PlayerCamera" type="Camera2D"]
 script = ExtResource("1_rhgek")
-player_target = NodePath("")
 camera_speed = 400
 mouse_diff = 10
 shake_max_offset = 30

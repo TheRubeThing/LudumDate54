@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ca5umakj6jbdd"]
+[gd_scene load_steps=12 format=3 uid="uid://ca5umakj6jbdd"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_43sha"]
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
@@ -9,7 +9,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dene"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l2t1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qcrug"]
+radius = 114.945
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi283"]
 atlas = ExtResource("4_e676d")
@@ -27,10 +28,6 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("4_e676d")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jr6w"]
-atlas = ExtResource("4_e676d")
-region = Rect2(64, 0, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_tbc8u"]
 animations = [{
 "frames": [{
@@ -45,9 +42,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i4yyl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7jr6w")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -74,7 +68,8 @@ script = ExtResource("3_vj3i5")
 script = ExtResource("4_enc4k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
-shape = SubResource("RectangleShape2D_8l2t1")
+scale = Vector2(2.61, 2.61)
+shape = SubResource("CircleShape2D_qcrug")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

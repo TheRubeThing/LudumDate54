@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var movement_speed: float = 100
+@export var movement_speed: float = 15
 @export var dmg: int = 10
 @export var push_back_factor: int = 100
 
