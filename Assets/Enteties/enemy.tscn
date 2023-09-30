@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ca5umakj6jbdd"]
+[gd_scene load_steps=18 format=3 uid="uid://ca5umakj6jbdd"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_43sha"]
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Assets/Scripts/DetectionRange.gd" id="4_enc4k"]
 [ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="5_3o3dc"]
 [ext_resource type="Script" path="res://Assets/Scripts/Stats.gd" id="6_ucqvr"]
+[ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="7_wwowe"]
+[ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="8_bfgcu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dene"]
 
@@ -50,6 +52,8 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e77v"]
 
+[sub_resource type="Theme" id="Theme_pkhrq"]
+
 [node name="Enemy" type="CharacterBody2D" groups=["ENEMIES"]]
 script = ExtResource("1_43sha")
 
@@ -79,12 +83,36 @@ script = ExtResource("5_3o3dc")
 [node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_6e77v")
 
-[node name="Stats" type="Node" parent="." node_paths=PackedStringArray("hit_box")]
+[node name="Stats" type="Node" parent="."]
 script = ExtResource("6_ucqvr")
-hit_box = NodePath("../HitBox")
-group = 1
+max_health = 30
+
+[node name="Healdisplay" type="Node2D" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="Healdisplay"]
+offset_left = -9.0
+offset_top = -12.0
+offset_right = 9.0
+offset_bottom = -8.0
+tooltip_text = "Health"
+theme = ExtResource("7_wwowe")
+value = 46.0
+show_percentage = false
+script = ExtResource("8_bfgcu")
+diffSpeed = 300
+
+[node name="DiffBar" type="ProgressBar" parent="Healdisplay/HealthBar"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 4.0
+theme = SubResource("Theme_pkhrq")
+value = 80.0
+show_percentage = false
 
 [connection signal="body_entered" from="DetectionRange" to="Brain" method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="Brain" method="_on_detection_range_body_exited"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
 [connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
+[connection signal="hit" from="HitBox" to="Stats" method="_on_hit_box_hit"]
+[connection signal="health_updated" from="Stats" to="Healdisplay/HealthBar" method="_on_stats_health_updated"]

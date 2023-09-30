@@ -22,7 +22,7 @@ func _physics_process(delta):
 	pushback_velocity *= pushback_decay
 	
 	velocity = brain.think(position) * movement_speed + pushback_velocity
-	$Sprite.flip_h = player.position.x < position.x
+	$Sprite.flip_h = player.position.x < position.x	
 	move_and_slide()
 
 

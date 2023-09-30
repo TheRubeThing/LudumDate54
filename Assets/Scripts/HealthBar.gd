@@ -1,13 +1,23 @@
 extends ProgressBar
 
+enum groups { ENEMIES, PLAYER }
+
 @export var diffSpeed : int
-var player_stats : Node
+@export var group : groups
+
+var stats : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_stats = Globals.player_stats
-	player_stats.connect("health_updated", _on_health_change)
-	value = player_stats.current_health
+	if group == groups.PLAYER:
+		stats = Globals.player_stats
+		stats.connect("health_updated", _on_stats_health_updated)
+	else:
+		stats = get_node("../../Stats")
+		visible = false
+		
+	max_value = stats.max_health
+	value = stats.current_health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,5 +29,8 @@ func _process(delta):
 		$DiffBar.value = value
 
 
-func _on_health_change(newVal):
+func _on_stats_health_updated(newVal):
+	print("hej")
 	value = newVal
+	if value != max_value:
+		visible = true

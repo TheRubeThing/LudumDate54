@@ -9,6 +9,9 @@ const SPEED = 100.0
 var equipped_item_instance: Item
 var pushback_velocity = Vector2(0,0)
 
+func _ready():
+	Globals.player = self
+	
 func equip_item(item: PackedScene) -> bool :
 	if (equipped_item_instance == null):
 		self.equipped_item_instance = item.instantiate()
@@ -21,7 +24,6 @@ func unequip_item():
 		return
 	equipped_item_instance.queue_free()
 	equipped_item_instance = null
-	
 
 # Uses the currently equipped item
 func action():
@@ -35,14 +37,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("throw"):
 		unequip_item()
 
-func _ready():
-	Globals.player = self
-
-
 func _physics_process(delta):
 	var direction_x = Input.get_axis("A_left", "D_right")
 	var direction_y = Input.get_axis("W_up", "S_down")
-	
 	
 	pushback_velocity *= pushback_decay
 
@@ -61,7 +58,6 @@ func _physics_process(delta):
 
 
 func _recoil(dir, amount):
-	print(dir)
 	pushback_velocity = dir * amount * push_back_factor
 
 
