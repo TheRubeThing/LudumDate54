@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
-@export var health: Resource
-@export var push_back_factor: int
+@export var push_back_factor: int = 100
 
 const SPEED = 100.0
 
 
-func _physics_process(delta):
+func _ready():
+	Globals.player = self
 
+
+func _physics_process(delta):
 	var direction_x = Input.get_axis("A_left", "D_right")
 	var direction_y = Input.get_axis("W_up", "S_down")
 
@@ -22,12 +24,9 @@ func _physics_process(delta):
 
 
 func _recoil(dir, amount):
-	print(dir)
 	position += dir * amount * push_back_factor / 100
 
 
-func _on_player_hit_box_hit(dmg, dmg_pos):
-	health.take_damage(dmg)
+func _on_hit_box_hit(dmg, dmg_pos):
 	var recoil_dir = (position - dmg_pos).normalized()
 	_recoil(recoil_dir, dmg)
-	

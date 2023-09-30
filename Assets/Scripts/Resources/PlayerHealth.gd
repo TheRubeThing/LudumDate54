@@ -15,7 +15,6 @@ func reset():
 
 func take_damage(amount):
 	current_health = max(current_health - amount, 0)
-	print(current_health)
 	if current_health == 0:
 		emit_signal("player_dead")
 	else:

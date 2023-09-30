@@ -1,14 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtdhhl65s5qid"]
+[gd_scene load_steps=5 format=3 uid="uid://dtdhhl65s5qid"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/HUD.gd" id="1_1ykgf"]
 [ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="2_5cy2c"]
 [ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="3_cvewk"]
-[ext_resource type="Script" path="res://Assets/Scripts/Resources/PlayerHealth.gd" id="4_50dly"]
-
-[sub_resource type="Resource" id="Resource_7dxbc"]
-resource_name = "PlayerHealth"
-script = ExtResource("4_50dly")
-max_health = 100
 
 [sub_resource type="Theme" id="Theme_pbdts"]
 
@@ -33,7 +27,6 @@ value = 46.0
 show_percentage = false
 script = ExtResource("3_cvewk")
 diffSpeed = 300
-player_health = SubResource("Resource_7dxbc")
 
 [node name="DiffBar" type="ProgressBar" parent="UIHealthBar"]
 show_behind_parent = true
