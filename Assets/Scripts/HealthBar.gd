@@ -1,13 +1,13 @@
 extends ProgressBar
 
 @export var diffSpeed : int
-@export var player_health : Resource
-
+var player_stats : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if player_health:
-		player_health.connect("damage_taken", _on_damage_taken)
+	player_stats = Globals.player_stats
+	player_stats.connect("health_updated", _on_health_change)
+	value = player_stats.current_health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,5 +19,5 @@ func _process(delta):
 		$DiffBar.value = value
 
 
-func _on_damage_taken(amount):
-	value -= amount
+func _on_health_change(newVal):
+	value = newVal

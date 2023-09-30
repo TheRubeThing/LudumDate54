@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var movement_speed: float = 15
 @export var dmg: int = 10
+@export var push_back_factor: int = 100
 
 var brain: BaseBrain
 var flipped_sprite: bool
@@ -23,3 +24,11 @@ func add_target(target: Node2D):
 	
 func remove_target():
 	brain.remove_target()
+
+
+func _recoil(dir, amount):
+	position += dir * amount * push_back_factor / 100
+
+func _on_hit_box_hit(dmg, dmg_pos):
+	var recoil_dir = (position - dmg_pos).normalized()
+	_recoil(recoil_dir, dmg)
