@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://mp1n3nlod8yc"
+=======
+uid="uid://cbf3j6yy3gg3p"
+>>>>>>> 6a2a7285fa8066293c0f8cafb75eac55c3b5fbb6
 path="res://.godot/imported/Bulletfire.png-6c08739419a5837985792d48df4ecc8f.ctex"
 metadata={
 "vram_texture": false
