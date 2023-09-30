@@ -10,6 +10,8 @@ var flipped_sprite: bool
 var pushback_velocity = Vector2(0,0)
 var player
 
+var splatter_scene = preload("res://Assets/FX/splatter.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = Globals.player
@@ -40,4 +42,7 @@ func _recoil(dir, amount):
 
 func _on_hit_box_hit(dmg_amount, dmg_pos):
 	var recoil_dir = (position - dmg_pos).normalized()
+	var splatter = splatter_scene.instantiate()
+	splatter.position = dmg_pos
+	get_parent().add_child(splatter)
 	_recoil(recoil_dir, dmg_amount)
