@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Assets/Scripts/GameController.gd" id="1_inwsr"]
 [ext_resource type="Texture2D" uid="uid://cow6yghmik1cp" path="res://icon.svg" id="2_sn03u"]
 [ext_resource type="PackedScene" uid="uid://cotx6ag8y33tm" path="res://Assets/Enteties/player.tscn" id="4_8cwlp"]
-[ext_resource type="PackedScene" uid="uid://b0wi6s3vqqspx" path="res://Assets/player_camera.tscn" id="4_jdbr8"]
+[ext_resource type="PackedScene" uid="uid://bfudmml80lruv" path="res://Assets/player_camera.tscn" id="4_jdbr8"]
 [ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="5_6vyxh"]
-[ext_resource type="PackedScene" uid="uid://dtdhhl65s5qid" path="res://Assets/Enteties/hud.tscn" id="6_8kmif"]
+[ext_resource type="PackedScene" uid="uid://d1fyhktbx28mn" path="res://Assets/Enteties/hud.tscn" id="6_8kmif"]
 
 [node name="GameWorld" type="Node2D"]
 script = ExtResource("1_inwsr")

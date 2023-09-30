@@ -12,10 +12,10 @@ func _process(delta):
 	var mousePos = get_global_mouse_position()
 	look_at(mousePos)
 
-	if (mousePos.x - position.x < 0):
-		flip_v = true
-	else:
+	if (global_position.x - mousePos.x < 0):
 		flip_v = false
+	else:
+		flip_v = true
 
 func action():
 	shoot()
