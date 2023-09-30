@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d247jcpvwbkhv"]
+[gd_scene load_steps=7 format=3 uid="uid://d247jcpvwbkhv"]
 
 [ext_resource type="Texture2D" uid="uid://j2vbprvvggm7" path="res://Assets/Sprites/Assault_Rifle.png" id="1_m50hb"]
 [ext_resource type="Script" path="res://Assets/Scripts/Weapon.gd" id="2_cr8ld"]
 [ext_resource type="Script" path="res://Assets/Scripts/WeaponStats.gd" id="3_ho75c"]
 [ext_resource type="PackedScene" uid="uid://bgb3mt54qgqu8" path="res://Assets/Weapons/Bullet.tscn" id="4_j40df"]
+[ext_resource type="Texture2D" uid="uid://cbf3j6yy3gg3p" path="res://Assets/Sprites/Bulletfire.png" id="5_yldak"]
 
 [sub_resource type="Resource" id="Resource_jwjv0"]
 script = ExtResource("3_ho75c")
@@ -21,6 +22,12 @@ bullet = ExtResource("4_j40df")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(11, -1)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Muzzle"]
+texture = ExtResource("5_yldak")
+
+[node name="Timer" type="Timer" parent="Muzzle/MuzzleFlash"]
+wait_time = 0.1
 
 [node name="Handle" type="Marker2D" parent="."]
 position = Vector2(-4, 0)
