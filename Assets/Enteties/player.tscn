@@ -1,16 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://cotx6ag8y33tm"]
+[gd_scene load_steps=8 format=3 uid="uid://cotx6ag8y33tm"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_b2sxo"]
+[ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_b2sxo"]
 [ext_resource type="Texture2D" uid="uid://cow6yghmik1cp" path="res://icon.svg" id="2_0fl32"]
+[ext_resource type="Script" path="res://Assets/Scripts/Resources/PlayerHealth.gd" id="2_gvmg3"]
+[ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="4_4ockk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmhf"]
+[sub_resource type="Resource" id="Resource_7dxbc"]
+resource_name = "PlayerHealth"
+script = ExtResource("2_gvmg3")
+max_health = 100
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyy7x"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ig5c"]
 
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 script = ExtResource("1_b2sxo")
+health = SubResource("Resource_7dxbc")
+push_back_factor = 100
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_jhmhf")
+shape = SubResource("CircleShape2D_vyy7x")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_0fl32")
+
+[node name="PlayerHitBox" type="Area2D" parent="."]
+visible = false
+script = ExtResource("4_4ockk")
+group = 1
+
+[node name="HitBoxCollision" type="CollisionShape2D" parent="PlayerHitBox"]
+shape = SubResource("RectangleShape2D_1ig5c")
+
+[connection signal="body_entered" from="PlayerHitBox" to="PlayerHitBox" method="_on_body_entered"]
+[connection signal="hit" from="PlayerHitBox" to="." method="_on_player_hit_box_hit"]
