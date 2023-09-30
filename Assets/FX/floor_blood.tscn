@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6d4ovu5ki1bl"]
+
+[ext_resource type="Texture2D" uid="uid://cr8sdhsafrtfk" path="res://Assets/Sprites/FloorBlood.png" id="1_pannl"]
+[ext_resource type="Script" path="res://Assets/Scripts/FloorBlood.gd" id="2_mdf4h"]
+
+[sub_resource type="Animation" id="Animation_dyam7"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wnxpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqluc"]
+_data = {
+"Fade": SubResource("Animation_dyam7"),
+"RESET": SubResource("Animation_wnxpx")
+}
+
+[node name="FloorBlood" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_pannl")
+script = ExtResource("2_mdf4h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cqluc")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

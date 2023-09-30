@@ -1,3 +1,5 @@
+class_name Bullet
+
 extends Area2D
 
 var bullet_speed = 0
@@ -14,3 +16,6 @@ func set_bullet_speed(bullet_speed: int):
 
 func set_dmg(dmg: int):
 	self.dmg = dmg
+	
+func destroy():
+	queue_free()
