@@ -15,7 +15,7 @@ func _ready():
 	trauma = 0
 
 
-func _process(delta):
+func _physics_process(delta):
 	# Focal point
 	var mouse_pos = get_local_mouse_position()
 	var mouse_skew = mouse_pos * mouse_diff / 100.

@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 @export var health: Resource
-@export var push_back_factor: int
+@export var push_back_factor: int = 100
+@export var pushback_decay: float = 0.8
 
 const SPEED = 100.0
 
 var equipped_item_instance: Item
+var pushback_velocity = Vector2(0,0)
 
 func _ready():
 	pass
@@ -40,6 +42,9 @@ func _physics_process(delta):
 
 	var direction_x = Input.get_axis("A_left", "D_right")
 	var direction_y = Input.get_axis("W_up", "S_down")
+	
+	
+	pushback_velocity *= pushback_decay
 
 	if direction_x || direction_y:
 		velocity.x = direction_x
@@ -50,14 +55,14 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		$Sprite.idle()
 	
-	velocity = velocity.normalized() * SPEED
+	velocity = (velocity.normalized() * SPEED) + pushback_velocity
 
 	move_and_slide()
 
 
 func _recoil(dir, amount):
 	print(dir)
-	position += dir * amount * push_back_factor / 100
+	pushback_velocity = dir * amount * push_back_factor
 
 
 func _on_player_hit_box_hit(dmg, dmg_pos):

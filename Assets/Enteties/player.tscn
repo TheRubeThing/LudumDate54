@@ -67,7 +67,6 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 script = ExtResource("1_b2sxo")
 health = SubResource("Resource_7dxbc")
-push_back_factor = 100
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vyy7x")
