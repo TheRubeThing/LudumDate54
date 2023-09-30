@@ -18,7 +18,7 @@ func remove_target():
 	_target = null
 	
 func _on_detection_range_body_entered(body):
-	print("body: ", body, " with group ", body.get_groups())
+	# print("body: ", body, " with group ", body.get_groups())
 	if body.is_in_group("PLAYER"):
 		add_target(body)
 

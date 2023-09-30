@@ -61,7 +61,7 @@ func _physics_process(delta):
 
 
 func _recoil(dir, amount):
-	print(dir)
+	# print(dir)
 	pushback_velocity = dir * amount * push_back_factor
 
 

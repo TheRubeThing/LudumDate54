@@ -23,5 +23,6 @@ func action():
 func shoot():
 	var bullet_instance = self.bullet.instantiate()
 	bullet_instance.set_bullet_speed(weapon_stats.bullet_speed)
+	bullet_instance.set_dmg(weapon_stats.damage)
 	get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.transform = $Muzzle.global_transform

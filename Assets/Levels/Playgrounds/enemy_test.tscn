@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://dslioq228hkpj"]
 
 [ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="1_bg7ps"]
-[ext_resource type="TileSet" uid="uid://cf0smslb7urwy" path="res://Assets/TileMaps/BrickFloor.tres" id="1_thonx"]
+[ext_resource type="TileSet" uid="uid://m80jochc6tng" path="res://Assets/TileMaps/BrickFloor.tres" id="1_thonx"]
 [ext_resource type="PackedScene" uid="uid://cotx6ag8y33tm" path="res://Assets/Enteties/player.tscn" id="2_fvrbv"]
-[ext_resource type="PackedScene" uid="uid://bfudmml80lruv" path="res://Assets/player_camera.tscn" id="5_7slmo"]
+[ext_resource type="PackedScene" uid="uid://b0wi6s3vqqspx" path="res://Assets/player_camera.tscn" id="5_7slmo"]
 [ext_resource type="PackedScene" uid="uid://bo5wyx7pqt5cx" path="res://Assets/Systems/enemy_spawner.tscn" id="5_wytd7"]
-[ext_resource type="PackedScene" uid="uid://dimusomo17rjn" path="res://Assets/Weapons/item_pick_up.tscn" id="6_t36vv"]
-[ext_resource type="PackedScene" uid="uid://d1fyhktbx28mn" path="res://Assets/Enteties/hud.tscn" id="7_ox436"]
+[ext_resource type="PackedScene" path="res://Assets/Weapons/item_pick_up.tscn" id="6_t36vv"]
+[ext_resource type="PackedScene" uid="uid://dtdhhl65s5qid" path="res://Assets/Enteties/hud.tscn" id="7_ox436"]
 
 [node name="enemy_test" type="Node2D"]
 
