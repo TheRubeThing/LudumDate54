@@ -9,14 +9,14 @@ var _target: Node2D
 func think(current_local_position) -> Vector2:
 	return Vector2(0, 0)
 
-## Adds a target to the brain	
+## Adds a target to the brain
 func add_target(target: Node2D):
 	_target = target
 
-## Removes a target from the brain	
+## Removes a target from the brain
 func remove_target():
 	_target = null
-	
+
 func _on_detection_range_body_entered(body):
 	if body.is_in_group("PLAYER"):
 		add_target(body)

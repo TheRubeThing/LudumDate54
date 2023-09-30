@@ -7,7 +7,13 @@ enum groups { ENEMIES, PLAYER }
 
 
 func _on_body_entered(body):
-	if body.is_in_group("PROJECTILES") || (group == groups.PLAYER && body.is_in_group("ENEMIES")):
-		var dmg = body.dmg
-		var dmg_pos = body.position
-		emit_signal("hit", dmg, dmg_pos)
+	if group == groups.PLAYER && body.is_in_group("ENEMIES"):
+		emit_signal("hit", body.dmg, body.position)
+
+
+func _on_area_entered(area):
+	if area.is_in_group("PROJECTILES"):
+		print(area.rotation)
+		emit_signal("hit", area.dmg, area.get_position())
+		area.queue_free()
+

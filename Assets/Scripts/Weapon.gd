@@ -12,10 +12,10 @@ func _process(delta):
 	var mousePos = get_global_mouse_position()
 	look_at(mousePos)
 
-	if (mousePos.x - position.x < 0):
-		flip_v = true
-	else:
+	if (global_position.x - mousePos.x < 0):
 		flip_v = false
+	else:
+		flip_v = true
 
 func action():
 	shoot()
@@ -23,6 +23,7 @@ func action():
 func shoot():
 	var bullet_instance = self.bullet.instantiate()
 	bullet_instance.set_bullet_speed(weapon_stats.bullet_speed)
+	bullet_instance.set_dmg(weapon_stats.damage)
 	get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.transform = $Muzzle.global_transform
 	$Muzzle/MuzzleFlash.visible = true

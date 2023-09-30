@@ -3,11 +3,10 @@
 [ext_resource type="Script" path="res://Assets/Weapons/Bullet.gd" id="1_qbkfh"]
 [ext_resource type="Texture2D" uid="uid://bnqqysv251qqu" path="res://Assets/Sprites/Bullet.png" id="2_t4ejx"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rxk5"]
-radius = 8.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy1g5"]
+size = Vector2(10, 4)
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["PROJECTILES"]]
 texture_filter = 1
 script = ExtResource("1_qbkfh")
 
@@ -16,4 +15,6 @@ texture = ExtResource("2_t4ejx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 2
-shape = SubResource("CapsuleShape2D_7rxk5")
+shape = SubResource("RectangleShape2D_yy1g5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

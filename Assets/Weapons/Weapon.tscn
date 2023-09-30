@@ -24,6 +24,7 @@ bullet = ExtResource("4_j40df")
 position = Vector2(11, -1)
 
 [node name="MuzzleFlash" type="Sprite2D" parent="Muzzle"]
+visible = false
 texture = ExtResource("5_yldak")
 
 [node name="Timer" type="Timer" parent="Muzzle/MuzzleFlash"]
