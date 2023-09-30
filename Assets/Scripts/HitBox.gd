@@ -13,7 +13,6 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("PROJECTILES"):
-		print(area.rotation)
 		emit_signal("hit", area.dmg, area.get_position())
 		area.queue_free()
 
