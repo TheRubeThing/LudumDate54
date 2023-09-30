@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bip1sdin0iscv"]
+[gd_scene load_steps=5 format=3 uid="uid://bip1sdin0iscv"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_p3pah"]
+[ext_resource type="PackedScene" uid="uid://cotx6ag8y33tm" path="res://Assets/Enteties/player.tscn" id="2_7ttyx"]
 [ext_resource type="Texture2D" uid="uid://cow6yghmik1cp" path="res://icon.svg" id="2_lgpel"]
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://Assets/Scripts/Camera2D.gd" id="4_f5tr5"]
-[ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="5_li7rt"]
+[ext_resource type="Script" path="res://PlayerCamera.gd" id="3_ugs8n"]
 
 [sub_resource type="GDScript" id="GDScript_qgi47"]
 script/source = "extends Sprite2D
@@ -20,11 +18,6 @@ func _ready():
 func _process(delta):
 	target = mouse.position
 "
-=======
-[ext_resource type="Script" path="res://PlayerCamera.gd" id="3_ugs8n"]
->>>>>>> master
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmhf"]
 
 [node name="GameWorld" type="Node2D"]
 
@@ -34,25 +27,9 @@ scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_lgpel")
 script = SubResource("GDScript_qgi47")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_p3pah")
+[node name="Player" parent="." instance=ExtResource("2_7ttyx")]
 
-[node name="CollisionBox" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_jhmhf")
-
-[node name="Sprite" type="Sprite2D" parent="Player"]
-scale = Vector2(0.155, 0.155)
-texture = ExtResource("2_lgpel")
-
-<<<<<<< HEAD
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-script = ExtResource("4_f5tr5")
-target = NodePath("../Player")
-
-[node name="Enemy" parent="." instance=ExtResource("5_li7rt")]
-=======
 [node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("3_ugs8n")
-target = NodePath("../Player")
+target = NodePath("")
 camera_speed = 200
->>>>>>> master
