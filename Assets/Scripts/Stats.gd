@@ -5,7 +5,6 @@ signal health_updated
 enum groups { ENEMIES, PLAYER }
 
 @export var max_health : int
-@export var hit_box : Area2D
 @export var group : groups
 
 var current_health : int
@@ -14,7 +13,8 @@ var current_health : int
 func _ready():
 	if group == groups.PLAYER:
 		Globals.player_stats = self
-		current_health = max_health
+	
+	current_health = max_health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

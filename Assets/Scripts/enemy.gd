@@ -22,10 +22,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	pushback_velocity *= pushback_decay
-	
+
 	velocity = brain.think(position) * movement_speed + pushback_velocity
+	$Sprite.flip_h = player.position.x < position.x
 	move_and_slide()
-	
+
 	if player:
 		$Sprite.flip_h = player.position.x < position.x
 
