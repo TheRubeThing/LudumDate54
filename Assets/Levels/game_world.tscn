@@ -30,11 +30,10 @@ shape = SubResource("RectangleShape2D_jhmhf")
 scale = Vector2(0.155, 0.155)
 texture = ExtResource("2_lgpel")
 
-[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+[node name="PlayerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player_target")]
 zoom = Vector2(3, 3)
 script = ExtResource("4_ru4v0")
-target = NodePath("../Player")
-camera_speed = 200
+player_target = NodePath("../Player")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("4_na2py")

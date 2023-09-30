@@ -32,6 +32,7 @@ texture = ExtResource("2_sn03u")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player_target") instance=ExtResource("4_jdbr8")]
 player_target = NodePath("../Player")
+mouse_diff = 5
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("5_apiii")
