@@ -5,8 +5,36 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 
+var equipped_item_instance: Item
+
 func _ready():
-	print(self.get_groups())
+	pass
+
+func equip_item(item: PackedScene) -> bool :
+	if (equipped_item_instance == null):
+		self.equipped_item_instance = item.instantiate()
+		add_child(equipped_item_instance)
+		return true
+	return false
+
+func unequip_item():
+	if (equipped_item_instance == null):
+		return
+	equipped_item_instance.queue_free()
+	equipped_item_instance = null
+	
+
+# Uses the currently equipped item
+func action():
+	if (equipped_item_instance == null):
+		return
+	equipped_item_instance.action()
+
+func _process(_delta):
+	if Input.is_action_just_pressed("shoot"):
+		action()
+	if Input.is_action_just_pressed("throw"):
+		unequip_item()
 
 func _physics_process(delta):
 

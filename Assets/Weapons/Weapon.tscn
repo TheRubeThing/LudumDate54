@@ -21,3 +21,6 @@ bullet = ExtResource("4_j40df")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(11, -1)
+
+[node name="Handle" type="Marker2D" parent="."]
+position = Vector2(-4, 0)
