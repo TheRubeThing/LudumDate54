@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ca5umakj6jbdd"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_43sha"]
-[ext_resource type="Texture2D" uid="uid://bfkxxulymwrw3" path="res://temp_sprites/Enemy.png" id="1_a7blt"]
+[ext_resource type="Texture2D" uid="uid://d1khfdhvk4t4w" path="res://Assets/Sprites/Ond.png" id="2_s6med"]
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
 [ext_resource type="Script" path="res://Assets/Scripts/DetectionRange.gd" id="4_enc4k"]
 
@@ -17,7 +17,7 @@ script = ExtResource("1_43sha")
 shape = SubResource("RectangleShape2D_3dene")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_a7blt")
+texture = ExtResource("2_s6med")
 
 [node name="Brain" type="Node" parent="." groups=["ENEMIES"]]
 script = ExtResource("3_vj3i5")
