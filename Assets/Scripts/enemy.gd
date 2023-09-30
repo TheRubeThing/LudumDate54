@@ -40,6 +40,4 @@ func _recoil(dir, amount):
 
 func _on_hit_box_hit(dmg_amount, dmg_pos):
 	var recoil_dir = (position - dmg_pos).normalized()
-	print(position)
-	print(dmg_pos)
 	_recoil(recoil_dir, dmg_amount)
