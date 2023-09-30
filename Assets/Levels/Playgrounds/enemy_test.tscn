@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dslioq228hkpj"]
+[gd_scene load_steps=5 format=3 uid="uid://dslioq228hkpj"]
 
 [ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="1_bg7ps"]
 [ext_resource type="TileSet" uid="uid://cf0smslb7urwy" path="res://Assets/TileMaps/BrickFloor.tres" id="1_thonx"]
 [ext_resource type="PackedScene" uid="uid://cotx6ag8y33tm" path="res://Assets/Enteties/player.tscn" id="2_fvrbv"]
 [ext_resource type="PackedScene" uid="uid://bfudmml80lruv" path="res://Assets/player_camera.tscn" id="5_7slmo"]
-[ext_resource type="PackedScene" uid="uid://bo5wyx7pqt5cx" path="res://Assets/Systems/enemy_spawner.tscn" id="5_wytd7"]
 
 [node name="enemy_test" type="Node2D"]
 
@@ -17,8 +16,7 @@ layer_0/tile_data = PackedInt32Array(-1, 65537, 1, -65536, 65537, 1, -65535, 655
 [node name="Player" parent="." instance=ExtResource("2_fvrbv")]
 position = Vector2(291, 157)
 
-[node name="EnemySpawner" parent="." instance=ExtResource("5_wytd7")]
-enemy_scene = ExtResource("1_bg7ps")
-
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player_target") instance=ExtResource("5_7slmo")]
 player_target = NodePath("../Player")
+
+[node name="Enemy" parent="." instance=ExtResource("1_bg7ps")]

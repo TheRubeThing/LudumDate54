@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 
+func _ready():
+	print(self.get_groups())
 
 func _physics_process(delta):
 

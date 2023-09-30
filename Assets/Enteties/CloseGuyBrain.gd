@@ -4,6 +4,7 @@ extends BaseBrain
 ## returns a direction in which to move next
 func think(current_local_position) -> Vector2:
 	if _target:
+		print("Has target: ", _target)
 		var direction = (_target.position - current_local_position).normalized()
 		return direction
 	else:
