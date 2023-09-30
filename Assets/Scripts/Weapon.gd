@@ -5,17 +5,17 @@ extends Item
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Muzzle/MuzzleFlash/Timer.timeout.connect(func(): $Muzzle/MuzzleFlash.visible = false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var mousePos = get_global_mouse_position()
 	look_at(mousePos)
 
-	if (mousePos.x - position.x < 0):
-		flip_v = true
-	else:
+	if (global_position.x - mousePos.x < 0):
 		flip_v = false
+	else:
+		flip_v = true
 
 func action():
 	shoot()
@@ -26,3 +26,5 @@ func shoot():
 	bullet_instance.set_dmg(weapon_stats.damage)
 	get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.transform = $Muzzle.global_transform
+	$Muzzle/MuzzleFlash.visible = true
+	$Muzzle/MuzzleFlash/Timer.start()
