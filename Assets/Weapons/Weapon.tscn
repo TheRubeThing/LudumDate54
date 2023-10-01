@@ -14,7 +14,7 @@ bullet_speed = 10
 ammo = 0
 throw_damage = 0
 
-[node name="Weapon" type="Sprite2D"]
+[node name="Weapon3" type="Sprite2D"]
 texture_filter = 1
 texture = ExtResource("1_m50hb")
 script = ExtResource("2_cr8ld")

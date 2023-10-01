@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwo5l2bfh8pvv"]
+
+[ext_resource type="AudioStream" uid="uid://pgie56q282jd" path="res://Assets/Sound/Explosion.wav" id="1_5v22u"]
+[ext_resource type="Script" path="res://Assets/Weapons/fxSOUND.gd" id="2_w7nsu"]
+
+[node name="FX_SOUND" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_5v22u")
+script = ExtResource("2_w7nsu")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

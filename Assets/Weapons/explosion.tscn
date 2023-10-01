@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1qn2y88rlauk"]
+[gd_scene load_steps=9 format=3 uid="uid://b1qn2y88rlauk"]
 
 [ext_resource type="Script" path="res://Assets/Weapons/Explosion.gd" id="1_2ud38"]
 [ext_resource type="Texture2D" uid="uid://b8nij1f4vkovq" path="res://Assets/Sprites/Sprite Sheets/Explosion.png" id="2_l5qy7"]
+[ext_resource type="PackedScene" uid="uid://cwo5l2bfh8pvv" path="res://Assets/Systems/fx_sound.tscn" id="3_qrnaa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_obmnj"]
 radius = 71.0
@@ -46,5 +47,7 @@ shape = SubResource("CircleShape2D_obmnj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xrdqm")
+
+[node name="FX_SOUND" parent="." instance=ExtResource("3_qrnaa")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
