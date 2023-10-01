@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvrlyhgchtnmg"]
+[gd_scene load_steps=6 format=3 uid="uid://dvrlyhgchtnmg"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/item_pick_up.gd" id="1_gt403"]
 [ext_resource type="PackedScene" uid="uid://c2m4a618ugybp" path="res://Assets/Weapons/Bazooka.tscn" id="2_jh1jq"]
 [ext_resource type="Texture2D" uid="uid://pcqa00asyu8y" path="res://Assets/Sprites/Cock_Bazookat.png" id="3_w1pom"]
+[ext_resource type="PackedScene" uid="uid://ch8p4ii7f4ed7" path="res://Assets/Systems/off_screen_killer.tscn" id="4_ele3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdee1"]
 size = Vector2(18, 8)
@@ -18,5 +19,7 @@ shape = SubResource("RectangleShape2D_pdee1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("3_w1pom")
+
+[node name="OffScreenKiller" parent="." instance=ExtResource("4_ele3o")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

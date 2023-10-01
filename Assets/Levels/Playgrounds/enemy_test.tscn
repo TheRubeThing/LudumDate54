@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dslioq228hkpj"]
+[gd_scene load_steps=11 format=3 uid="uid://dslioq228hkpj"]
 
 [ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="1_bg7ps"]
 [ext_resource type="TileSet" uid="uid://cf0smslb7urwy" path="res://Assets/TileMaps/BrickFloor.tres" id="1_thonx"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bfudmml80lruv" path="res://Assets/player_camera.tscn" id="5_7slmo"]
 [ext_resource type="PackedScene" uid="uid://bo5wyx7pqt5cx" path="res://Assets/Systems/enemy_spawner.tscn" id="5_wytd7"]
 [ext_resource type="PackedScene" uid="uid://dimusomo17rjn" path="res://Assets/Weapons/item_pick_up.tscn" id="6_t36vv"]
+[ext_resource type="PackedScene" uid="uid://btkb1lrces40h" path="res://Assets/Enteties/enemySkeleton.tscn" id="6_ummr4"]
+[ext_resource type="PackedScene" uid="uid://dedlmvw28ns1f" path="res://Assets/Enteties/enemyZombie.tscn" id="7_2ugs8"]
 [ext_resource type="PackedScene" uid="uid://d1fyhktbx28mn" path="res://Assets/Enteties/hud.tscn" id="7_ox436"]
 [ext_resource type="PackedScene" uid="uid://dvrlyhgchtnmg" path="res://Assets/Weapons/Bazzoka_pickup.tscn" id="8_rblpi"]
 
@@ -33,6 +35,14 @@ position = Vector2(291, 157)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_wytd7")]
 enemy_scene = ExtResource("1_bg7ps")
+
+[node name="SkeletonSPawner" parent="." instance=ExtResource("5_wytd7")]
+enemy_scene = ExtResource("6_ummr4")
+spawn_interval = 2.0
+
+[node name="Zombie Spawn" parent="." instance=ExtResource("5_wytd7")]
+enemy_scene = ExtResource("7_2ugs8")
+spawn_interval = 5.0
 
 [node name="Enemy" parent="." instance=ExtResource("1_bg7ps")]
 
