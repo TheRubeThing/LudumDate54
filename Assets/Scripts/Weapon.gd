@@ -21,7 +21,7 @@ func _process(delta):
 		unflip()
 	else:
 		flip()
-		
+
 
 func flip():
 	if !flipped:
@@ -44,8 +44,7 @@ func action():
 
 func shoot():
 	if ready_to_fire:
-		if weapon_stats.ammo <= 0:
-			print('out of ammo :(')
+		if weapon_stats.ammo == 0:
 			return
 		ready_to_fire = false
 		var bullet_instance = self.bullet.instantiate()
@@ -57,4 +56,4 @@ func shoot():
 		$Muzzle/MuzzleFlash/Timer.start()
 		$FireRate.start()
 		$SOUND.play()
-		weapon_stats.ammo -= 1
+		weapon_stats.ammo = max(weapon_stats.ammo - 1, -1)
