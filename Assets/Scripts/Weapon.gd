@@ -44,7 +44,7 @@ func action():
 
 func shoot():
 	if ready_to_fire:
-		if weapon_stats.ammo <= 0:
+		if weapon_stats.ammo == 0:
 			return
 		ready_to_fire = false
 		var bullet_instance = self.bullet.instantiate()
@@ -55,4 +55,4 @@ func shoot():
 		$Muzzle/MuzzleFlash.visible = true
 		$Muzzle/MuzzleFlash/Timer.start()
 		$FireRate.start()
-		weapon_stats.ammo -= 1
+		weapon_stats.ammo = max(weapon_stats.ammo - 1, -1)

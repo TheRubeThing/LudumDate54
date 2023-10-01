@@ -11,7 +11,8 @@ script = ExtResource("3_vrl0u")
 damage = 10
 fire_rate = 0.5
 bullet_speed = 0
-ammo = 1000
+ammo = -1
+throw_damage = 50
 
 [node name="Weapon" type="Sprite2D"]
 texture_filter = 1

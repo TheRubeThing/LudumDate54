@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1fyhktbx28mn"]
+[gd_scene load_steps=10 format=3 uid="uid://d1fyhktbx28mn"]
 
 [ext_resource type="Script" path="res://Assets/Enteties/Hud.gd" id="1_blfo7"]
 [ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="2_5cy2c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Assets/Enteties/StartMenu.gd" id="4_y73hi"]
 [ext_resource type="Script" path="res://Assets/Enteties/AmmoCounter.gd" id="5_lpyhp"]
 [ext_resource type="Script" path="res://Assets/Enteties/GameOver.gd" id="5_p146x"]
+[ext_resource type="Script" path="res://Assets/Enteties/PauseMenu.gd" id="8_4vdb7"]
 
 [sub_resource type="Theme" id="Theme_pbdts"]
 
@@ -114,6 +115,50 @@ offset_bottom = 221.0
 text = "Back to start...
 "
 
+[node name="PauseMenu" type="Panel" parent="."]
+process_mode = 3
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("8_4vdb7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 89.0
+offset_right = 290.0
+offset_bottom = 136.0
+text = "Game Paused"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+process_mode = 3
+offset_left = 152.0
+offset_top = 188.0
+offset_right = 245.0
+offset_bottom = 257.0
+
+[node name="ResumeGame" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+action_mode = 0
+text = "Resume"
+
+[node name="MainMenu" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+action_mode = 0
+text = "Main menu"
+
+[node name="ExitGame" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Exit game"
+
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartGame" to="StartMenu" method="_on_start_game_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/ExitGame" to="StartMenu" method="_on_exit_game_pressed"]
 [connection signal="pressed" from="GameOver/MainMenu" to="GameOver" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/ResumeGame" to="PauseMenu" method="_on_resume_game_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenu" to="PauseMenu" method="_on_restart_game_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/ExitGame" to="PauseMenu" method="_on_exit_game_pressed"]
