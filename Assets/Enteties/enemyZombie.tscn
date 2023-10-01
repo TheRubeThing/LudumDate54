@@ -1,19 +1,18 @@
+[gd_scene load_steps=27 format=3 uid="uid://dedlmvw28ns1f"]
 
-[gd_scene load_steps=27 format=3 uid="uid://ca5umakj6jbdd"]
-
-[ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_43sha"]
-[ext_resource type="PackedScene" uid="uid://dimusomo17rjn" path="res://Assets/Weapons/item_pick_up.tscn" id="2_o6uxn"]
-[ext_resource type="PackedScene" uid="uid://dvrlyhgchtnmg" path="res://Assets/Weapons/Bazzoka_pickup.tscn" id="3_0hqix"]
-[ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
-[ext_resource type="Shader" path="res://Assets/Shaders/flashShader.gdshader" id="4_csmh5"]
-[ext_resource type="Texture2D" uid="uid://d0e073t15tnav" path="res://Assets/Sprites/Sprite Sheets/Arg_Sheet.png" id="4_e676d"]
-[ext_resource type="Script" path="res://Assets/Scripts/DetectionRange.gd" id="4_enc4k"]
-[ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="5_3o3dc"]
-[ext_resource type="Script" path="res://Assets/Enteties/FlashAnimationPlayer.gd" id="6_8xy8p"]
-[ext_resource type="Script" path="res://Assets/Scripts/Stats.gd" id="6_ucqvr"]
-[ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="7_wwowe"]
-[ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="8_bfgcu"]
-[ext_resource type="PackedScene" uid="uid://ch8p4ii7f4ed7" path="res://Assets/Systems/off_screen_killer.tscn" id="13_rfrmw"]
+[ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_qt0wi"]
+[ext_resource type="PackedScene" uid="uid://dimusomo17rjn" path="res://Assets/Weapons/item_pick_up.tscn" id="2_tr5u0"]
+[ext_resource type="PackedScene" uid="uid://dvrlyhgchtnmg" path="res://Assets/Weapons/Bazzoka_pickup.tscn" id="3_3sqai"]
+[ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="4_lliql"]
+[ext_resource type="Script" path="res://Assets/Scripts/DetectionRange.gd" id="5_sbxvv"]
+[ext_resource type="Shader" path="res://Assets/Shaders/flashShader.gdshader" id="6_1wiwf"]
+[ext_resource type="Texture2D" uid="uid://ryawpx1xuota" path="res://Assets/Sprites/Sprite Sheets/Zombie_Sheet.png" id="7_wx247"]
+[ext_resource type="Script" path="res://Assets/Enteties/FlashAnimationPlayer.gd" id="8_rgda5"]
+[ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="9_54rme"]
+[ext_resource type="Script" path="res://Assets/Scripts/Stats.gd" id="10_a5vx1"]
+[ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="11_25gx1"]
+[ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="12_y5phe"]
+[ext_resource type="PackedScene" uid="uid://ch8p4ii7f4ed7" path="res://Assets/Systems/off_screen_killer.tscn" id="13_rn1ne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dene"]
 
@@ -22,39 +21,39 @@ radius = 114.945
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ewyt"]
 resource_local_to_scene = true
-shader = ExtResource("4_csmh5")
+shader = ExtResource("6_1wiwf")
 shader_parameter/active = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wi283"]
-atlas = ExtResource("4_e676d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkvge"]
+atlas = ExtResource("7_wx247")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qtxs"]
-atlas = ExtResource("4_e676d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_i27g5"]
+atlas = ExtResource("7_wx247")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwwd3"]
-atlas = ExtResource("4_e676d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5cko"]
+atlas = ExtResource("7_wx247")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i4yyl"]
-atlas = ExtResource("4_e676d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftv1s"]
+atlas = ExtResource("7_wx247")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tbc8u"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sev7j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wi283")
+"texture": SubResource("AtlasTexture_dkvge")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2qtxs")
+"texture": SubResource("AtlasTexture_i27g5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mwwd3")
+"texture": SubResource("AtlasTexture_m5cko")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i4yyl")
+"texture": SubResource("AtlasTexture_ftv1s")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -103,18 +102,19 @@ _data = {
 [sub_resource type="Theme" id="Theme_pkhrq"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["ENEMIES"]]
-script = ExtResource("1_43sha")
-item_drops = Array[PackedScene]([ExtResource("2_o6uxn"), ExtResource("3_0hqix"), null])
+script = ExtResource("1_qt0wi")
+movement_speed = 5.0
+item_drops = Array[PackedScene]([ExtResource("2_tr5u0"), ExtResource("3_3sqai"), null])
 item_drops_probablities = Array[int]([5, 1, 3])
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3dene")
 
 [node name="Brain" type="Node" parent="." groups=["ENEMIES"]]
-script = ExtResource("3_vj3i5")
+script = ExtResource("4_lliql")
 
 [node name="DetectionRange" type="Area2D" parent="."]
-script = ExtResource("4_enc4k")
+script = ExtResource("5_sbxvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 scale = Vector2(2.61, 2.61)
@@ -123,10 +123,8 @@ shape = SubResource("CircleShape2D_qcrug")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_2ewyt")
-sprite_frames = SubResource("SpriteFrames_tbc8u")
+sprite_frames = SubResource("SpriteFrames_sev7j")
 animation = &"new_animation"
-frame = 3
-frame_progress = 0.451446
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 reset_on_save = false
@@ -134,17 +132,17 @@ speed_scale = 20.0
 libraries = {
 "": SubResource("AnimationLibrary_i21ui")
 }
-script = ExtResource("6_8xy8p")
+script = ExtResource("8_rgda5")
 
 [node name="HitBox" type="Area2D" parent="."]
-script = ExtResource("5_3o3dc")
+script = ExtResource("9_54rme")
 
 [node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_6e77v")
 
 [node name="Stats" type="Node" parent="."]
-script = ExtResource("6_ucqvr")
-max_health = 30
+script = ExtResource("10_a5vx1")
+max_health = 100
 
 [node name="Healdisplay" type="Node2D" parent="."]
 
@@ -154,10 +152,10 @@ offset_top = -12.0
 offset_right = 9.0
 offset_bottom = -8.0
 tooltip_text = "Health"
-theme = ExtResource("7_wwowe")
+theme = ExtResource("11_25gx1")
 value = 46.0
 show_percentage = false
-script = ExtResource("8_bfgcu")
+script = ExtResource("12_y5phe")
 diffSpeed = 300
 
 [node name="DiffBar" type="ProgressBar" parent="Healdisplay/HealthBar"]
@@ -169,7 +167,7 @@ theme = SubResource("Theme_pkhrq")
 value = 80.0
 show_percentage = false
 
-[node name="OffScreenKiller" parent="." instance=ExtResource("13_rfrmw")]
+[node name="OffScreenKiller" parent="." instance=ExtResource("13_rn1ne")]
 
 [connection signal="body_entered" from="DetectionRange" to="Brain" method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="Brain" method="_on_detection_range_body_exited"]

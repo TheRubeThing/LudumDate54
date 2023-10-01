@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://105myu5hmoc6"]
+
+[ext_resource type="Texture2D" uid="uid://gp23ipuqr116" path="res://Assets/Sprites/Aim_1.png" id="1_5h32m"]
+[ext_resource type="Script" path="res://Assets/Scripts/MouseCursor.gd" id="2_jawlh"]
+
+[node name="MouseCursor" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_5h32m")
+script = ExtResource("2_jawlh")
