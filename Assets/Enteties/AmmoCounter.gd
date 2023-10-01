@@ -6,7 +6,6 @@ var current_ammo
 
 func _process(delta):
 	update_ammo()
-	update_rect()
 
 
 func update_ammo():
@@ -14,6 +13,7 @@ func update_ammo():
 	if item && "ammo" in item:
 		visible = true
 		current_ammo = item.ammo
+		update_rect()
 	else:
 		visible = false
 
