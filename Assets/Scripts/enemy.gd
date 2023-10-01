@@ -49,3 +49,7 @@ func _on_hit_box_hit(dmg_amount, dmg_pos):
 	splatter.position = dmg_pos
 	get_parent().add_child(splatter)
 	_recoil(recoil_dir, dmg_amount)
+
+
+func _on_stats_am_dead():
+	queue_free() # Replace with function body.

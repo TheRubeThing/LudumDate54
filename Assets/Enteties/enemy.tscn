@@ -169,4 +169,5 @@ show_percentage = false
 [connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
 [connection signal="hit" from="HitBox" to="Sprite/AnimationPlayer" method="_on_hit_box_hit"]
 [connection signal="hit" from="HitBox" to="Stats" method="_on_hit_box_hit"]
+[connection signal="am_dead" from="Stats" to="." method="_on_stats_am_dead"]
 [connection signal="health_updated" from="Stats" to="Healdisplay/HealthBar" method="_on_stats_health_updated"]

@@ -1,6 +1,7 @@
 extends Node
 
 signal health_updated
+signal am_dead
 
 enum groups { ENEMIES, PLAYER }
 
@@ -24,6 +25,9 @@ func _process(delta):
 func take_damage(amount):
 	current_health = max(current_health - amount, 0)
 	emit_signal("health_updated", current_health)
+	if current_health == 0:
+		emit_signal("am_dead")
+
 	
 	
 func heal(amount):
