@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpoeef0mwkfpg"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/ThrownItem.gd" id="1_6eykj"]
+[ext_resource type="Texture2D" uid="uid://bnqqysv251qqu" path="res://Assets/Sprites/Bullet.png" id="2_b8oan"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rxk5"]
+radius = 8.0
+height = 18.0
+
+[node name="Bullet" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_6eykj")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_b8oan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 2
+shape = SubResource("CapsuleShape2D_7rxk5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+autostart = true

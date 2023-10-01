@@ -9,5 +9,4 @@ var item_pickup_scene: PackedScene
 func action():
 	pass
 
-func create_pickup():
-	pass
+
