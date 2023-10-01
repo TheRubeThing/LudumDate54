@@ -14,6 +14,7 @@ damage = 50
 fire_rate = 0.1
 bullet_speed = 10
 ammo = 60
+throw_damage = 0
 
 [node name="Weapon2" type="Sprite2D"]
 texture_filter = 1

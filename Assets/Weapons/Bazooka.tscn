@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/WeaponStats.gd" id="3_iijvb"]
 [ext_resource type="PackedScene" uid="uid://cq1cglxqr4hkv" path="res://Assets/Weapons/Rocket.tscn" id="4_lvfmq"]
 [ext_resource type="Texture2D" uid="uid://cbf3j6yy3gg3p" path="res://Assets/Sprites/Bulletfire.png" id="5_it608"]
-[ext_resource type="AudioStream" uid="uid://bdjgi0s05ukkc" path="res://Assets/Sound/Bazooka_Shot.wav" id="6_w3wxh"]
+[ext_resource type="AudioStream" uid="uid://ceeenpdqsj073" path="res://Assets/Sound/Bazooka_Shot.wav" id="6_w3wxh"]
 
 [sub_resource type="Resource" id="Resource_jwjv0"]
 resource_local_to_scene = true

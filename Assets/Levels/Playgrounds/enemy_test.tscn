@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="1_bg7ps"]
 [ext_resource type="TileSet" uid="uid://cf0smslb7urwy" path="res://Assets/TileMaps/BrickFloor.tres" id="1_thonx"]
 [ext_resource type="PackedScene" uid="uid://cotx6ag8y33tm" path="res://Assets/Enteties/player.tscn" id="2_fvrbv"]
-[ext_resource type="PackedScene" uid="uid://b0wi6s3vqqspx" path="res://Assets/player_camera.tscn" id="5_7slmo"]
+[ext_resource type="PackedScene" uid="uid://bfudmml80lruv" path="res://Assets/player_camera.tscn" id="5_7slmo"]
 [ext_resource type="PackedScene" uid="uid://bo5wyx7pqt5cx" path="res://Assets/Systems/enemy_spawner.tscn" id="5_wytd7"]
 [ext_resource type="PackedScene" uid="uid://btkb1lrces40h" path="res://Assets/Enteties/enemySkeleton.tscn" id="6_ummr4"]
 [ext_resource type="PackedScene" uid="uid://dedlmvw28ns1f" path="res://Assets/Enteties/enemyZombie.tscn" id="7_2ugs8"]

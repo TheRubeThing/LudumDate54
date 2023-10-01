@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://du12uqu3o773f"]
+
+[ext_resource type="AudioStream" uid="uid://ccn658jmx5mf0" path="res://Assets/Sound/Zombie.wav" id="1_cr4ew"]
+[ext_resource type="Script" path="res://Assets/Scripts/SFX Timer.gd" id="2_byisc"]
+
+[node name="EnemySound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_cr4ew")
+volume_db = -5.95
+
+[node name="SFX_Timer" type="Timer" parent="."]
+script = ExtResource("2_byisc")
+
+[connection signal="timeout" from="SFX_Timer" to="SFX_Timer" method="_on_timeout"]

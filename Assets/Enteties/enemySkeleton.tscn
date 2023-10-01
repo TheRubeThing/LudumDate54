@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://btkb1lrces40h"]
+[gd_scene load_steps=30 format=3 uid="uid://btkb1lrces40h"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_ijtye"]
 [ext_resource type="PackedScene" uid="uid://mfl3dy78e6p2" path="res://Assets/Weapons/AK-47_pickup.tscn" id="2_vfjip"]
@@ -14,6 +14,8 @@
 [ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="11_tti75"]
 [ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="12_ronv1"]
 [ext_resource type="PackedScene" uid="uid://ch8p4ii7f4ed7" path="res://Assets/Systems/off_screen_killer.tscn" id="13_a5qd7"]
+[ext_resource type="PackedScene" uid="uid://du12uqu3o773f" path="res://Assets/Systems/enemy_sound.tscn" id="15_023os"]
+[ext_resource type="AudioStream" uid="uid://b887qo5so1fpg" path="res://Assets/Sound/Skeleton.wav" id="16_mhk0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dene"]
 
@@ -102,7 +104,7 @@ _data = {
 
 [sub_resource type="Theme" id="Theme_pkhrq"]
 
-[node name="Enemy" type="CharacterBody2D" groups=["ENEMIES"]]
+[node name="Skeleton" type="CharacterBody2D" groups=["ENEMIES"]]
 script = ExtResource("1_ijtye")
 movement_speed = 25.0
 item_drops = Array[PackedScene]([ExtResource("2_vfjip"), ExtResource("3_gc6xt"), null, ExtResource("4_5380d")])
@@ -169,6 +171,9 @@ value = 80.0
 show_percentage = false
 
 [node name="OffScreenKiller" parent="." instance=ExtResource("13_a5qd7")]
+
+[node name="EnemySound" parent="." instance=ExtResource("15_023os")]
+stream = ExtResource("16_mhk0y")
 
 [connection signal="body_entered" from="DetectionRange" to="Brain" method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="Brain" method="_on_detection_range_body_exited"]
