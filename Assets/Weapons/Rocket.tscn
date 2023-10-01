@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhdqlf5axpsax"]
+[gd_scene load_steps=5 format=3 uid="uid://cq1cglxqr4hkv"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Rocket.gd" id="1_47i01"]
 [ext_resource type="Texture2D" uid="uid://bpqm63cjm6tgp" path="res://Assets/Sprites/Bazzokat_Bullet.png" id="2_i5xaw"]
-[ext_resource type="PackedScene" path="res://Assets/Systems/off_screen_killer.tscn" id="3_ypsv2"]
+[ext_resource type="PackedScene" uid="uid://ch8p4ii7f4ed7" path="res://Assets/Systems/off_screen_killer.tscn" id="3_ypsv2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7rxk5"]
 radius = 8.0
