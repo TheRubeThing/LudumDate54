@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dslioq228hkpj"]
+[gd_scene load_steps=14 format=3 uid="uid://dslioq228hkpj"]
 
 [ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="1_bg7ps"]
 [ext_resource type="TileSet" uid="uid://cf0smslb7urwy" path="res://Assets/TileMaps/BrickFloor.tres" id="1_thonx"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dvrlyhgchtnmg" path="res://Assets/Weapons/Bazzoka_pickup.tscn" id="8_rblpi"]
 [ext_resource type="Texture2D" uid="uid://gp23ipuqr116" path="res://Assets/Sprites/Aim_1.png" id="11_qrhx0"]
 [ext_resource type="Script" path="res://Assets/Scripts/MouseCursor.gd" id="12_l3qde"]
+[ext_resource type="PackedScene" uid="uid://d4i3jeaokspt0" path="res://Assets/Weapons/Knife_pickup.tscn" id="13_tln1y"]
 
 [node name="enemy_test" type="Node2D"]
 
@@ -47,6 +48,7 @@ enemy_scene = ExtResource("7_2ugs8")
 spawn_interval = 5.0
 
 [node name="Enemy" parent="." instance=ExtResource("1_bg7ps")]
+position = Vector2(31, 95)
 
 [node name="ItemPickUp" parent="." instance=ExtResource("6_t36vv")]
 position = Vector2(294, 100)
@@ -60,3 +62,6 @@ position = Vector2(244, 123)
 texture_filter = 1
 texture = ExtResource("11_qrhx0")
 script = ExtResource("12_l3qde")
+
+[node name="Knife" parent="." instance=ExtResource("13_tln1y")]
+position = Vector2(77, 52)

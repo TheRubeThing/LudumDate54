@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpouk37t68qkj"]
+
+[ext_resource type="Texture2D" uid="uid://6ksnqb8gdv5y" path="res://Assets/Sprites/A_Knife.png" id="1_elfix"]
+[ext_resource type="Script" path="res://Assets/Scripts/Weapon.gd" id="2_l0qkv"]
+[ext_resource type="Script" path="res://Assets/Scripts/WeaponStats.gd" id="3_vrl0u"]
+[ext_resource type="PackedScene" uid="uid://c1fleu3ygsp0l" path="res://Assets/Weapons/Slash.tscn" id="4_owg1g"]
+
+[sub_resource type="Resource" id="Resource_jwjv0"]
+script = ExtResource("3_vrl0u")
+damage = 10
+fire_rate = 10
+bullet_speed = 0
+condition = 100
+
+[node name="Weapon" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_elfix")
+script = ExtResource("2_l0qkv")
+weapon_stats = SubResource("Resource_jwjv0")
+bullet = ExtResource("4_owg1g")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(17, -1)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Muzzle"]
+visible = false
+
+[node name="Timer" type="Timer" parent="Muzzle/MuzzleFlash"]
+wait_time = 0.1
+
+[node name="Handle" type="Marker2D" parent="."]
+position = Vector2(-4, 0)
