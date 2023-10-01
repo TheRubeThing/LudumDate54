@@ -12,6 +12,11 @@ var pushback_velocity = Vector2(0,0)
 func _ready():
 	Globals.player = self
 	
+
+func get_current_item():
+	return equipped_item_instance	
+
+	
 func equip_item(item: PackedScene) -> bool :
 	if (equipped_item_instance == null):
 		self.equipped_item_instance = item.instantiate()

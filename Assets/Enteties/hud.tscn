@@ -57,7 +57,6 @@ stretch_mode = 1
 script = ExtResource("5_lpyhp")
 
 [node name="StartMenu" type="Panel" parent="."]
-visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("4_y73hi")
@@ -93,7 +92,6 @@ text = "Exit game"
 
 [node name="GameOver" type="Panel" parent="."]
 process_mode = 3
-visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("5_p146x")

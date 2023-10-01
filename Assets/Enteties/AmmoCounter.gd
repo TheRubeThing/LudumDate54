@@ -4,20 +4,18 @@ var transform
 var current_ammo
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	current_ammo = 3
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	update_ammo()
+	update_ammo()
 	update_rect()
 
 
-#func update_ammo():
-#	weapon = Globals.player.get_weapon()
-#	current_ammo = weapon.ammo
+func update_ammo():
+	var item = Globals.player.get_current_item()
+	if item && "ammo" in item:
+		visible = true
+		current_ammo = item.ammo
+	else:
+		visible = false
 
 
 func update_rect():
