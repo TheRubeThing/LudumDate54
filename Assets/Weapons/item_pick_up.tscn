@@ -1,16 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://mfl3dy78e6p2"]
+[gd_scene load_steps=6 format=3 uid="uid://cppkifaohyd1t"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/item_pick_up.gd" id="1_yrs5h"]
-[ext_resource type="PackedScene" uid="uid://doohlksxvxo1u" path="res://Assets/Weapons/AK-47.tscn" id="2_qwter"]
+[ext_resource type="PackedScene" uid="uid://cplcvdtjolt1c" path="res://Assets/Weapons/Weapon.tscn" id="2_ri2x2"]
 [ext_resource type="Texture2D" uid="uid://j2vbprvvggm7" path="res://Assets/Sprites/Assault_Rifle.png" id="3_1j166"]
 [ext_resource type="PackedScene" uid="uid://ch8p4ii7f4ed7" path="res://Assets/Systems/off_screen_killer.tscn" id="4_r0d7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdee1"]
 size = Vector2(18, 8)
 
-[node name="AK-47_pickup" type="Area2D"]
+[node name="ItemPickUp" type="Area2D"]
 script = ExtResource("1_yrs5h")
-item_scene = ExtResource("2_qwter")
+item_scene = ExtResource("2_ri2x2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
