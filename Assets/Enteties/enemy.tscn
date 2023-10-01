@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://ca5umakj6jbdd"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_43sha"]
-[ext_resource type="PackedScene" uid="uid://dimusomo17rjn" path="res://Assets/Weapons/item_pick_up.tscn" id="2_o6uxn"]
+[ext_resource type="PackedScene" uid="uid://cppkifaohyd1t" path="res://Assets/Weapons/item_pick_up.tscn" id="2_o6uxn"]
 [ext_resource type="PackedScene" uid="uid://dvrlyhgchtnmg" path="res://Assets/Weapons/Bazzoka_pickup.tscn" id="3_0hqix"]
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
 [ext_resource type="Shader" path="res://Assets/Shaders/flashShader.gdshader" id="4_csmh5"]

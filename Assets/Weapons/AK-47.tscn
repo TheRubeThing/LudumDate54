@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d247jcpvwbkhv"]
+[gd_scene load_steps=7 format=3 uid="uid://doohlksxvxo1u"]
 
 [ext_resource type="Texture2D" uid="uid://j2vbprvvggm7" path="res://Assets/Sprites/Assault_Rifle.png" id="1_p88gt"]
 [ext_resource type="Script" path="res://Assets/Scripts/Weapon.gd" id="2_w16vj"]
@@ -11,7 +11,7 @@ script = ExtResource("3_oqcpw")
 damage = 50
 fire_rate = 0.1
 bullet_speed = 10
-ammo = 100
+ammo = 60
 
 [node name="Weapon" type="Sprite2D"]
 texture_filter = 1
