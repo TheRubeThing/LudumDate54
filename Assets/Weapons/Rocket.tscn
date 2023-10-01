@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq1cglxqr4hkv"]
+[gd_scene load_steps=4 format=3 uid="uid://dhdqlf5axpsax"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Rocket.gd" id="1_47i01"]
 [ext_resource type="Texture2D" uid="uid://bpqm63cjm6tgp" path="res://Assets/Sprites/Bazzokat_Bullet.png" id="2_i5xaw"]
