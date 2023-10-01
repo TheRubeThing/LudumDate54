@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxmlvh4ohp3a7"]
+[gd_scene load_steps=10 format=3 uid="uid://cxmlvh4ohp3a7"]
 
 [ext_resource type="Texture2D" uid="uid://veuhfo1fylak" path="res://Assets/Sprites/Sprite Sheets/BloodThing_Sheet.png" id="1_x6d7q"]
 [ext_resource type="Script" path="res://Assets/Enteties/Splatter.gd" id="2_tmbrw"]
+[ext_resource type="PackedScene" uid="uid://cwo5l2bfh8pvv" path="res://Assets/Systems/fx_sound.tscn" id="3_i8hyq"]
+[ext_resource type="AudioStream" uid="uid://qlj3ddyfb57b" path="res://Assets/Sound/Splat.wav" id="4_um7uo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nu2m"]
 atlas = ExtResource("1_x6d7q")
@@ -43,5 +45,9 @@ animations = [{
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_kxkfu")
 script = ExtResource("2_tmbrw")
+
+[node name="FX_SOUND" parent="." instance=ExtResource("3_i8hyq")]
+stream = ExtResource("4_um7uo")
+volume_db = -15.0
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
