@@ -1,13 +1,13 @@
-
-[gd_scene load_steps=27 format=3 uid="uid://ca5umakj6jbdd"]
+[gd_scene load_steps=28 format=3 uid="uid://ca5umakj6jbdd"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_43sha"]
-[ext_resource type="PackedScene" uid="uid://dimusomo17rjn" path="res://Assets/Weapons/item_pick_up.tscn" id="2_o6uxn"]
+[ext_resource type="PackedScene" uid="uid://mfl3dy78e6p2" path="res://Assets/Weapons/AK-47_pickup.tscn" id="2_7phmd"]
 [ext_resource type="PackedScene" uid="uid://dvrlyhgchtnmg" path="res://Assets/Weapons/Bazzoka_pickup.tscn" id="3_0hqix"]
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
 [ext_resource type="Shader" path="res://Assets/Shaders/flashShader.gdshader" id="4_csmh5"]
 [ext_resource type="Texture2D" uid="uid://d0e073t15tnav" path="res://Assets/Sprites/Sprite Sheets/Arg_Sheet.png" id="4_e676d"]
 [ext_resource type="Script" path="res://Assets/Scripts/DetectionRange.gd" id="4_enc4k"]
+[ext_resource type="PackedScene" uid="uid://d4i3jeaokspt0" path="res://Assets/Weapons/Knife_pickup.tscn" id="4_temu5"]
 [ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="5_3o3dc"]
 [ext_resource type="Script" path="res://Assets/Enteties/FlashAnimationPlayer.gd" id="6_8xy8p"]
 [ext_resource type="Script" path="res://Assets/Scripts/Stats.gd" id="6_ucqvr"]
@@ -104,8 +104,8 @@ _data = {
 
 [node name="Enemy" type="CharacterBody2D" groups=["ENEMIES"]]
 script = ExtResource("1_43sha")
-item_drops = Array[PackedScene]([ExtResource("2_o6uxn"), ExtResource("3_0hqix"), null])
-item_drops_probablities = Array[int]([5, 1, 3])
+item_drops = Array[PackedScene]([ExtResource("2_7phmd"), ExtResource("3_0hqix"), null, ExtResource("4_temu5")])
+item_drops_probablities = Array[int]([3, 1, 7, 2])
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3dene")

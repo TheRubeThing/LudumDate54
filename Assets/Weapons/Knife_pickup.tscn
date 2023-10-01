@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4i3jeaokspt0"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/item_pick_up.gd" id="1_vlg1x"]
+[ext_resource type="PackedScene" uid="uid://dpouk37t68qkj" path="res://Assets/Weapons/Knife.tscn" id="2_xsa07"]
+[ext_resource type="Texture2D" uid="uid://6ksnqb8gdv5y" path="res://Assets/Sprites/A_Knife.png" id="3_3aq76"]
+[ext_resource type="PackedScene" uid="uid://ch8p4ii7f4ed7" path="res://Assets/Systems/off_screen_killer.tscn" id="4_62x77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdee1"]
+size = Vector2(18, 8)
+
+[node name="KnifPickup" type="Area2D"]
+script = ExtResource("1_vlg1x")
+item_scene = ExtResource("2_xsa07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+shape = SubResource("RectangleShape2D_pdee1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_3aq76")
+
+[node name="OffScreenKiller" parent="." instance=ExtResource("4_62x77")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
