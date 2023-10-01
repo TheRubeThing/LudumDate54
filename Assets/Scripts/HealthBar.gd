@@ -30,7 +30,6 @@ func _process(delta):
 
 
 func _on_stats_health_updated(newVal):
-	print("hej")
 	value = newVal
 	if value != max_value:
 		visible = true

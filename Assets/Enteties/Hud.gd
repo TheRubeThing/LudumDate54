@@ -1,6 +1,5 @@
 extends Panel
 
-
 var modes
 
 # Called when the node enters the scene tree for the first time.
@@ -16,12 +15,7 @@ func _process(delta):
 
 
 func _on_mode_changed():
-	if Globals.get_mode() == modes.START_MENU:
+	if Globals.get_mode() == modes.GAME_RUNNING:
 		visible = true
 	else:
 		visible = false
-
-
-func _on_start_game_pressed():
-	Globals.start_game()
-

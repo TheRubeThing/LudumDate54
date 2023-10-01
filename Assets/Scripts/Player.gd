@@ -64,3 +64,7 @@ func _recoil(dir, amount):
 func _on_hit_box_hit(dmg, dmg_pos):
 	var recoil_dir = (position - dmg_pos).normalized()
 	_recoil(recoil_dir, dmg)
+
+
+func _on_stats_am_dead():
+	Globals.game_over() # Replace with function body.

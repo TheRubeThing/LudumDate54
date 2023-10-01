@@ -16,12 +16,12 @@ func _process(delta):
 
 
 func _on_mode_changed():
-	if Globals.get_mode() == modes.START_MENU:
+	if Globals.get_mode() == modes.GAME_OVER:
 		visible = true
 	else:
 		visible = false
 
 
-func _on_start_game_pressed():
-	Globals.start_game()
-
+func _on_main_menu_pressed():
+	print("hej")
+	Globals.restart()

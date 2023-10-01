@@ -1,20 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1fyhktbx28mn"]
+[gd_scene load_steps=7 format=3 uid="uid://d1fyhktbx28mn"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/HUD.gd" id="1_1ykgf"]
+[ext_resource type="Script" path="res://Assets/Enteties/Hud.gd" id="1_blfo7"]
 [ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="2_5cy2c"]
 [ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="3_cvewk"]
+[ext_resource type="Script" path="res://Assets/Enteties/StartMenu.gd" id="4_y73hi"]
+[ext_resource type="Script" path="res://Assets/Enteties/GameOver.gd" id="5_p146x"]
 
 [sub_resource type="Theme" id="Theme_pbdts"]
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_1ykgf")
 
 [node name="Hud" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 640.0
 offset_bottom = 360.0
+script = ExtResource("1_blfo7")
 
 [node name="UIHealthBar" type="ProgressBar" parent="Hud"]
+layout_mode = 0
 offset_right = 200.0
 offset_bottom = 20.0
 tooltip_text = "Health"
@@ -34,9 +37,9 @@ value = 80.0
 show_percentage = false
 
 [node name="StartMenu" type="Panel" parent="."]
-visible = false
 offset_right = 640.0
 offset_bottom = 360.0
+script = ExtResource("4_y73hi")
 
 [node name="Title" type="RichTextLabel" parent="StartMenu"]
 layout_mode = 2
@@ -47,16 +50,18 @@ offset_bottom = 131.0
 text = "The game"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StartMenu"]
+process_mode = 3
 layout_mode = 2
 offset_left = 152.0
 offset_top = 188.0
 offset_right = 245.0
 offset_bottom = 257.0
 
-[node name="Button" type="Button" parent="StartMenu/VBoxContainer"]
+[node name="StartGame" type="Button" parent="StartMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+action_mode = 0
 text = "Start game"
 
 [node name="Button2" type="Button" parent="StartMenu/VBoxContainer"]
@@ -64,3 +69,29 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 text = "Exit game"
+
+[node name="GameOver" type="Panel" parent="."]
+process_mode = 3
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("5_p146x")
+
+[node name="Game Over" type="RichTextLabel" parent="GameOver"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 90.0
+offset_right = 301.0
+offset_bottom = 143.0
+text = "Game Over!"
+
+[node name="MainMenu" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 188.0
+offset_right = 272.0
+offset_bottom = 221.0
+text = "Back to start...
+"
+
+[connection signal="pressed" from="StartMenu/VBoxContainer/StartGame" to="StartMenu" method="_on_start_game_pressed"]
+[connection signal="pressed" from="GameOver/MainMenu" to="GameOver" method="_on_main_menu_pressed"]

@@ -134,6 +134,7 @@ group = 1
 [node name="HitBoxCollision" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_1ig5c")
 
+[connection signal="am_dead" from="Stats" to="." method="_on_stats_am_dead"]
 [connection signal="body_entered" from="HitBox" to="HitBox" method="_on_body_entered"]
 [connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
 [connection signal="hit" from="HitBox" to="Stats" method="_on_hit_box_hit"]
