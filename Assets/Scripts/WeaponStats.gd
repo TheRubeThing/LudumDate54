@@ -5,3 +5,4 @@ class_name WeaponStats
 @export var fire_rate : float
 @export var bullet_speed : int
 @export var ammo : int
+@export var throw_damage : int

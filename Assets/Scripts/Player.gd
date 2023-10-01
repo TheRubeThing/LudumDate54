@@ -39,6 +39,7 @@ func unequip_item():
 	thrown_item.set_item(equipped_item_instance.duplicate())
 	thrown_item.set_bullet_speed(3)
 	thrown_item.transform = equipped_item_instance.global_transform
+	thrown_item.set_dmg(equipped_item_instance.weapon_stats.throw_damage)
 	owner.add_child(thrown_item)
 	# set direction
 	
