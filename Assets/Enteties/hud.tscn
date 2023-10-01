@@ -9,18 +9,14 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_1ykgf")
 
-[node name="Menu" type="Button" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -53.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "Menu"
+[node name="Hud" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 640.0
+offset_bottom = 360.0
 
-[node name="UIHealthBar" type="ProgressBar" parent="."]
+[node name="UIHealthBar" type="ProgressBar" parent="Hud"]
 offset_right = 200.0
-offset_bottom = 30.0
+offset_bottom = 20.0
 tooltip_text = "Health"
 theme = ExtResource("2_5cy2c")
 value = 46.0
@@ -28,11 +24,43 @@ show_percentage = false
 script = ExtResource("3_cvewk")
 group = 1
 
-[node name="DiffBar" type="ProgressBar" parent="UIHealthBar"]
+[node name="DiffBar" type="ProgressBar" parent="Hud/UIHealthBar"]
 show_behind_parent = true
 layout_mode = 0
 offset_right = 200.0
-offset_bottom = 30.0
+offset_bottom = 20.0
 theme = SubResource("Theme_pbdts")
 value = 80.0
 show_percentage = false
+
+[node name="StartMenu" type="Panel" parent="."]
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Title" type="RichTextLabel" parent="StartMenu"]
+layout_mode = 2
+offset_left = 129.0
+offset_top = 88.0
+offset_right = 273.0
+offset_bottom = 131.0
+text = "The game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu"]
+layout_mode = 2
+offset_left = 152.0
+offset_top = 188.0
+offset_right = 245.0
+offset_bottom = 257.0
+
+[node name="Button" type="Button" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Start game"
+
+[node name="Button2" type="Button" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Exit game"

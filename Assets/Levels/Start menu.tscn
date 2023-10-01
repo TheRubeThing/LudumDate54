@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bbp6fqmawd1kg"]
+
+[node name="Start menu" type="Node2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

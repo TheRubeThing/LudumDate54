@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ca5umakj6jbdd"]
+[gd_scene load_steps=24 format=3 uid="uid://ca5umakj6jbdd"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_43sha"]
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
