@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var dmg: int = 10
 @export var push_back_factor: int = 100
 @export var pushback_decay: float = 0.6
+@export var item_drops: Array[PackedScene]
+@export var item_drops_probablities: Array[int]
 
 var brain: BaseBrain
 var flipped_sprite: bool
@@ -17,6 +19,7 @@ func _ready():
 	player = Globals.player
 	brain = get_node("Brain")
 	$Sprite.play("new_animation")
+	assert(item_drops.size() == item_drops_probablities.size())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,3 +52,23 @@ func _on_hit_box_hit(dmg_amount, dmg_pos):
 	splatter.position = dmg_pos
 	get_parent().add_child(splatter)
 	_recoil(recoil_dir, dmg_amount)
+
+
+func _on_stats_am_dead():
+	drop_item()
+	queue_free() # Replace with function body.
+	
+func drop_item():
+	var total_prob = 0
+	for prob in item_drops_probablities:
+		total_prob += prob
+	var dice_roll = randi() % total_prob
+	var dice_check = 0
+	for i in item_drops.size():
+		dice_check += item_drops_probablities[i]
+		if dice_roll < dice_check:
+			if item_drops[i]:
+				var weapon = item_drops[i].instantiate()
+				weapon.position = position
+				get_parent().add_child(weapon)
+				break
