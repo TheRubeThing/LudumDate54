@@ -7,3 +7,4 @@ func destroy():
 	explosion.position = position
 	get_parent().add_child(explosion)
 	queue_free()
+

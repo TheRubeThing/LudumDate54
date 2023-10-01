@@ -12,16 +12,38 @@ var pushback_velocity = Vector2(0,0)
 func _ready():
 	Globals.player = self
 	
-func equip_item(item: PackedScene) -> bool :
-	if (equipped_item_instance == null):
-		self.equipped_item_instance = item.instantiate()
-		add_child(equipped_item_instance)
-		return true
-	return false
+func get_current_item():
+	return equipped_item_instance	
+
+func equip_item(item: Item) -> bool :
+	if (equipped_item_instance != null):
+		return false
+
+	self.equipped_item_instance = item
+	add_child(equipped_item_instance)
+
+	# offset item position if it has a handle.
+	var handle = equipped_item_instance.get_node_or_null("Handle")
+	if handle:
+		equipped_item_instance.position -= handle.position
+
+	return true
+
 
 func unequip_item():
 	if (equipped_item_instance == null):
 		return
+
+	var thrown_item = load("res://Assets/Weapons/ThrownItem.tscn")
+	thrown_item = thrown_item.instantiate()
+	thrown_item.set_item(equipped_item_instance.duplicate())
+	thrown_item.set_bullet_speed(3)
+	thrown_item.transform = equipped_item_instance.global_transform
+	thrown_item.set_dmg(equipped_item_instance.weapon_stats.throw_damage)
+	owner.add_child(thrown_item)
+	# set direction
+	
+
 	equipped_item_instance.queue_free()
 	equipped_item_instance = null
 
@@ -32,7 +54,7 @@ func action():
 	equipped_item_instance.action()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		action()
 	if Input.is_action_just_pressed("throw"):
 		unequip_item()
@@ -64,3 +86,7 @@ func _recoil(dir, amount):
 func _on_hit_box_hit(dmg, dmg_pos):
 	var recoil_dir = (position - dmg_pos).normalized()
 	_recoil(recoil_dir, dmg)
+
+
+func _on_stats_am_dead():
+	Globals.game_over() # Replace with function body.
