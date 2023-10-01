@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://dedlmvw28ns1f"]
+[gd_scene load_steps=28 format=3 uid="uid://dedlmvw28ns1f"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_qt0wi"]
 [ext_resource type="PackedScene" uid="uid://dimusomo17rjn" path="res://Assets/Weapons/item_pick_up.tscn" id="2_tr5u0"]
 [ext_resource type="PackedScene" uid="uid://dvrlyhgchtnmg" path="res://Assets/Weapons/Bazzoka_pickup.tscn" id="3_3sqai"]
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="4_lliql"]
+[ext_resource type="PackedScene" uid="uid://d4i3jeaokspt0" path="res://Assets/Weapons/Knife_pickup.tscn" id="4_vus82"]
 [ext_resource type="Script" path="res://Assets/Scripts/DetectionRange.gd" id="5_sbxvv"]
 [ext_resource type="Shader" path="res://Assets/Shaders/flashShader.gdshader" id="6_1wiwf"]
 [ext_resource type="Texture2D" uid="uid://ryawpx1xuota" path="res://Assets/Sprites/Sprite Sheets/Zombie_Sheet.png" id="7_wx247"]
@@ -104,8 +105,8 @@ _data = {
 [node name="Enemy" type="CharacterBody2D" groups=["ENEMIES"]]
 script = ExtResource("1_qt0wi")
 movement_speed = 5.0
-item_drops = Array[PackedScene]([ExtResource("2_tr5u0"), ExtResource("3_3sqai"), null])
-item_drops_probablities = Array[int]([5, 1, 3])
+item_drops = Array[PackedScene]([ExtResource("2_tr5u0"), ExtResource("3_3sqai"), null, ExtResource("4_vus82")])
+item_drops_probablities = Array[int]([3, 1, 7, 2])
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3dene")
