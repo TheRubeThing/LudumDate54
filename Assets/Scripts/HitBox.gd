@@ -12,7 +12,7 @@ func _on_body_entered(body):
 
 
 func _on_area_entered(area):
-	if group == groups.ENEMIES && area.is_in_group("PROJECTILES"):
+	if area.is_in_group("PROJECTILES"):
 		emit_signal("hit", area.dmg, area.get_position())
 		area.destroy()
 

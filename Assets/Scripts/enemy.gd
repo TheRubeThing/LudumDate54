@@ -47,7 +47,7 @@ func _recoil(dir, amount):
 
 
 func _on_hit_box_hit(dmg_amount, dmg_pos):
-	var recoil_dir = (position - player.position).normalized()
+	var recoil_dir = (position - dmg_pos).normalized()
 	var splatter = splatter_scene.instantiate()
 	splatter.position = dmg_pos
 	get_parent().add_child(splatter)
