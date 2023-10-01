@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://doohlksxvxo1u"]
+[gd_scene load_steps=14 format=3 uid="uid://doohlksxvxo1u"]
 
 [ext_resource type="Texture2D" uid="uid://j2vbprvvggm7" path="res://Assets/Sprites/Assault_Rifle.png" id="1_p88gt"]
 [ext_resource type="Script" path="res://Assets/Scripts/Weapon.gd" id="2_w16vj"]
@@ -16,7 +16,43 @@ bullet_speed = 10
 ammo = 60
 throw_damage = 10
 
-[node name="Weapon3" type="Sprite2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e820j"]
+atlas = ExtResource("6_xnq76")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd5yf"]
+atlas = ExtResource("6_xnq76")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tncov"]
+atlas = ExtResource("6_xnq76")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lim0n"]
+atlas = ExtResource("6_xnq76")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ndss"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e820j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd5yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tncov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lim0n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Weapon2" type="Sprite2D"]
 texture_filter = 1
 texture = ExtResource("1_p88gt")
 script = ExtResource("2_w16vj")
@@ -34,6 +70,13 @@ texture = ExtResource("5_5hdan")
 [node name="Timer" type="Timer" parent="Muzzle/MuzzleFlash"]
 wait_time = 0.1
 
+[node name="Smoke" type="AnimatedSprite2D" parent="Muzzle"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_5ndss")
+frame_progress = 0.180868
+offset = Vector2(1, 0)
+script = ExtResource("7_f8vu4")
+
 [node name="Handle" type="Marker2D" parent="."]
 position = Vector2(-4, 0)
 
@@ -42,3 +85,4 @@ position = Vector2(-4, 0)
 [node name="SOUND" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_u5t8k")
 volume_db = -8.62
+[connection signal="animation_finished" from="Muzzle/Smoke" to="Muzzle/Smoke" method="_on_animation_finished"]

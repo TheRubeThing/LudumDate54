@@ -104,6 +104,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 script = ExtResource("1_b2sxo")
+push_back_factor = 60
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("5_gap5a")
