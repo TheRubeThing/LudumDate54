@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bgb3mt54qgqu8" path="res://Assets/Weapons/Bullet.tscn" id="4_j40df"]
 [ext_resource type="Texture2D" uid="uid://cbf3j6yy3gg3p" path="res://Assets/Sprites/Bulletfire.png" id="5_yldak"]
 
-[sub_resource type="Resource" id="Resource_jwjv0"]
+[sub_resource type="Resource" id="Resource_6l48g"]
 script = ExtResource("3_ho75c")
-damage = 10
-fire_rate = 5
+damage = 50
+fire_rate = 10
 bullet_speed = 10
 condition = 100
 
@@ -17,7 +17,7 @@ condition = 100
 texture_filter = 1
 texture = ExtResource("1_m50hb")
 script = ExtResource("2_cr8ld")
-weapon_stats = SubResource("Resource_jwjv0")
+weapon_stats = SubResource("Resource_6l48g")
 bullet = ExtResource("4_j40df")
 
 [node name="Muzzle" type="Marker2D" parent="."]

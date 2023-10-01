@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxmlvh4ohp3a7"]
+
+[ext_resource type="Texture2D" uid="uid://veuhfo1fylak" path="res://Assets/Sprites/Sprite Sheets/BloodThing_Sheet.png" id="1_x6d7q"]
+[ext_resource type="Script" path="res://Assets/Enteties/Splatter.gd" id="2_tmbrw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nu2m"]
+atlas = ExtResource("1_x6d7q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18b6n"]
+atlas = ExtResource("1_x6d7q")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11vyo"]
+atlas = ExtResource("1_x6d7q")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4yvc"]
+atlas = ExtResource("1_x6d7q")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxkfu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nu2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18b6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11vyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4yvc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Splatter" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_kxkfu")
+script = ExtResource("2_tmbrw")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

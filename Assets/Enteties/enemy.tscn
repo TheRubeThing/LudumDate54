@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca5umakj6jbdd"]
+[gd_scene load_steps=21 format=3 uid="uid://ca5umakj6jbdd"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_43sha"]
 [ext_resource type="Script" path="res://Assets/Enteties/CloseGuyBrain.gd" id="3_vj3i5"]
+[ext_resource type="Shader" path="res://Assets/Shaders/flashShader.gdshader" id="4_csmh5"]
 [ext_resource type="Texture2D" uid="uid://d0e073t15tnav" path="res://Assets/Sprites/Sprite Sheets/Arg_Sheet.png" id="4_e676d"]
 [ext_resource type="Script" path="res://Assets/Scripts/DetectionRange.gd" id="4_enc4k"]
 [ext_resource type="Script" path="res://Assets/Scripts/HitBox.gd" id="5_3o3dc"]
+[ext_resource type="Script" path="res://Assets/Enteties/FlashAnimationPlayer.gd" id="6_8xy8p"]
 [ext_resource type="Script" path="res://Assets/Scripts/Stats.gd" id="6_ucqvr"]
 [ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="7_wwowe"]
 [ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="8_bfgcu"]
@@ -13,6 +15,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qcrug"]
 radius = 114.945
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ewyt"]
+resource_local_to_scene = true
+shader = ExtResource("4_csmh5")
+shader_parameter/active = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi283"]
 atlas = ExtResource("4_e676d")
@@ -50,6 +57,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_5wafl"]
+resource_name = "Flash"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ch281"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i21ui"]
+_data = {
+"Flash": SubResource("Animation_5wafl"),
+"RESET": SubResource("Animation_ch281")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e77v"]
 
 [sub_resource type="Theme" id="Theme_pkhrq"]
@@ -72,10 +116,19 @@ shape = SubResource("CircleShape2D_qcrug")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_2ewyt")
 sprite_frames = SubResource("SpriteFrames_tbc8u")
 animation = &"new_animation"
 frame = 3
 frame_progress = 0.451446
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+reset_on_save = false
+speed_scale = 20.0
+libraries = {
+"": SubResource("AnimationLibrary_i21ui")
+}
+script = ExtResource("6_8xy8p")
 
 [node name="HitBox" type="Area2D" parent="."]
 script = ExtResource("5_3o3dc")
@@ -114,5 +167,7 @@ show_percentage = false
 [connection signal="body_exited" from="DetectionRange" to="Brain" method="_on_detection_range_body_exited"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
 [connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
+[connection signal="hit" from="HitBox" to="Sprite/AnimationPlayer" method="_on_hit_box_hit"]
 [connection signal="hit" from="HitBox" to="Stats" method="_on_hit_box_hit"]
+[connection signal="am_dead" from="Stats" to="." method="_on_stats_am_dead"]
 [connection signal="health_updated" from="Stats" to="Healdisplay/HealthBar" method="_on_stats_health_updated"]

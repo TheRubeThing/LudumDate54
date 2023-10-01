@@ -10,6 +10,8 @@ var flipped_sprite: bool
 var pushback_velocity = Vector2(0,0)
 var player
 
+var splatter_scene = preload("res://Assets/FX/splatter.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = Globals.player
@@ -20,10 +22,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	pushback_velocity *= pushback_decay
-	
+
 	velocity = brain.think(position) * movement_speed + pushback_velocity
-	$Sprite.flip_h = player.position.x < position.x	
+	$Sprite.flip_h = player.position.x < position.x
 	move_and_slide()
+
+	if player:
+		$Sprite.flip_h = player.position.x < position.x
 
 
 func add_target(target: Node2D):
@@ -40,4 +45,11 @@ func _recoil(dir, amount):
 
 func _on_hit_box_hit(dmg_amount, dmg_pos):
 	var recoil_dir = (position - dmg_pos).normalized()
+	var splatter = splatter_scene.instantiate()
+	splatter.position = dmg_pos
+	get_parent().add_child(splatter)
 	_recoil(recoil_dir, dmg_amount)
+
+
+func _on_stats_am_dead():
+	queue_free() # Replace with function body.
