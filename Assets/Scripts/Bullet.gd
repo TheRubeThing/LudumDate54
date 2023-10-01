@@ -10,6 +10,8 @@ func _process(delta):
 
 func move(delta):
 	position += transform.x * bullet_speed * delta * 100
+	if position.distance_to(Globals.player.position) > 600:
+		destroy()
 
 func set_bullet_speed(bullet_speed: int):
 	self.bullet_speed = bullet_speed

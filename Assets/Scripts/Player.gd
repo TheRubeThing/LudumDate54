@@ -12,6 +12,9 @@ var pushback_velocity = Vector2(0,0)
 func _ready():
 	Globals.player = self
 	
+func get_current_item():
+	return equipped_item_instance	
+
 func equip_item(item: Item) -> bool :
 	if (equipped_item_instance != null):
 		return false
@@ -26,6 +29,7 @@ func equip_item(item: Item) -> bool :
 
 	return true
 
+
 func unequip_item():
 	if (equipped_item_instance == null):
 		return
@@ -35,6 +39,7 @@ func unequip_item():
 	thrown_item.set_item(equipped_item_instance.duplicate())
 	thrown_item.set_bullet_speed(3)
 	thrown_item.transform = equipped_item_instance.global_transform
+	thrown_item.set_dmg(equipped_item_instance.weapon_stats.throw_damage)
 	owner.add_child(thrown_item)
 	# set direction
 	
@@ -81,3 +86,7 @@ func _recoil(dir, amount):
 func _on_hit_box_hit(dmg, dmg_pos):
 	var recoil_dir = (position - dmg_pos).normalized()
 	_recoil(recoil_dir, dmg)
+
+
+func _on_stats_am_dead():
+	Globals.game_over() # Replace with function body.
