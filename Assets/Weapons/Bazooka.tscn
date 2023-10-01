@@ -5,17 +5,15 @@
 [ext_resource type="Script" path="res://Assets/Scripts/WeaponStats.gd" id="3_iijvb"]
 [ext_resource type="PackedScene" uid="uid://dhdqlf5axpsax" path="res://Assets/Weapons/Rocket.tscn" id="4_lvfmq"]
 [ext_resource type="Texture2D" uid="uid://bfnjhxhxvffaq" path="res://Assets/Sprites/Bulletfire.png" id="5_it608"]
-[ext_resource type="Texture2D" uid="uid://cfv3w58rlca5w" path="res://Assets/Sprites/Sprite Sheets/Smoke_Sheet.png" id="6_sg42n"]
-[ext_resource type="Script" path="res://Assets/Weapons/Smoke.gd" id="7_2c3qn"]
 
 [sub_resource type="Resource" id="Resource_jwjv0"]
 resource_local_to_scene = true
 script = ExtResource("3_iijvb")
 damage = 50
-fire_rate = 1.0
-bullet_speed = 4
-ammo = 1
-throw_damage = 0
+fire_rate = 0.0
+bullet_speed = 5
+ammo = 10
+throw_damage = 20
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e820j"]
 atlas = ExtResource("6_sg42n")
