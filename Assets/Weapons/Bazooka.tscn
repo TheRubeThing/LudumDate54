@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://pcqa00asyu8y" path="res://Assets/Sprites/Cock_Bazookat.png" id="1_3uo6h"]
 [ext_resource type="Script" path="res://Assets/Scripts/Weapon.gd" id="2_crmqn"]
 [ext_resource type="Script" path="res://Assets/Scripts/WeaponStats.gd" id="3_iijvb"]
-[ext_resource type="PackedScene" uid="uid://dhdqlf5axpsax" path="res://Assets/Weapons/Rocket.tscn" id="4_lvfmq"]
-[ext_resource type="Texture2D" uid="uid://bfnjhxhxvffaq" path="res://Assets/Sprites/Bulletfire.png" id="5_it608"]
+[ext_resource type="PackedScene" uid="uid://cq1cglxqr4hkv" path="res://Assets/Weapons/Rocket.tscn" id="4_lvfmq"]
+[ext_resource type="Texture2D" uid="uid://cbf3j6yy3gg3p" path="res://Assets/Sprites/Bulletfire.png" id="5_it608"]
 
 [sub_resource type="Resource" id="Resource_jwjv0"]
 resource_local_to_scene = true
