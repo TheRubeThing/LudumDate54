@@ -10,12 +10,14 @@ func _process(delta):
 
 func update_ammo():
 	var item = Globals.player.get_current_item()
-	if item && "ammo" in item:
-		visible = true
-		current_ammo = item.ammo
-		update_rect()
-	else:
-		visible = false
+	if item && "weapon_stats" in item:
+		current_ammo = item.weapon_stats.ammo
+		if current_ammo > 0:
+			visible = true
+			update_rect()
+			return
+	
+	visible = false
 
 
 func update_rect():

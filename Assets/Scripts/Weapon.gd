@@ -45,7 +45,6 @@ func action():
 func shoot():
 	if ready_to_fire:
 		if weapon_stats.ammo <= 0:
-			print('out of ammo :(')
 			return
 		ready_to_fire = false
 		var bullet_instance = self.bullet.instantiate()

@@ -29,6 +29,10 @@ func start_game():
 func game_over():
 	set_mode(modes.GAME_OVER)
 	pause_game()
+	
+	
+func exit_game():
+	get_tree().quit()
 
 
 func restart():

@@ -25,3 +25,7 @@ func _on_mode_changed():
 func _on_start_game_pressed():
 	Globals.start_game()
 
+
+
+func _on_exit_game_pressed():
+	Globals.exit_game()

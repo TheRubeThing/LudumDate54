@@ -40,6 +40,7 @@ show_percentage = false
 
 [node name="Panel" type="Panel" parent="Hud"]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_top = 20.0
 offset_right = 55.0
 offset_bottom = 40.0
@@ -84,7 +85,7 @@ size_flags_vertical = 4
 action_mode = 0
 text = "Start game"
 
-[node name="Button2" type="Button" parent="StartMenu/VBoxContainer"]
+[node name="ExitGame" type="Button" parent="StartMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -114,4 +115,5 @@ text = "Back to start...
 "
 
 [connection signal="pressed" from="StartMenu/VBoxContainer/StartGame" to="StartMenu" method="_on_start_game_pressed"]
+[connection signal="pressed" from="StartMenu/VBoxContainer/ExitGame" to="StartMenu" method="_on_exit_game_pressed"]
 [connection signal="pressed" from="GameOver/MainMenu" to="GameOver" method="_on_main_menu_pressed"]
