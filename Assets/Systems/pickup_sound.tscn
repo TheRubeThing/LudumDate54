@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbqgvpi5h5u66"]
+
+[ext_resource type="AudioStream" uid="uid://dlq71f3dhi31p" path="res://Assets/Sound/Weapon_Pickup.wav" id="1_q37rd"]
+[ext_resource type="Script" path="res://Assets/Scripts/PICKUP_SOUND.gd" id="2_frump"]
+
+[node name="PICKUP_SOUND" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_q37rd")
+volume_db = -9.19
+script = ExtResource("2_frump")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
