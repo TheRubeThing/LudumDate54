@@ -45,7 +45,9 @@ func action():
 func shoot():
 	if ready_to_fire:
 		if weapon_stats.ammo <= 0:
-			print('out of ammo :(')
+			$Muzzle/Smoke.visible = true
+			$Muzzle/Smoke.smoke()
+			ready_to_fire = false
 			return
 		ready_to_fire = false
 		var bullet_instance = self.bullet.instantiate()
