@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dslioq228hkpj"]
+[gd_scene load_steps=15 format=3 uid="uid://dslioq228hkpj"]
 
 [ext_resource type="PackedScene" uid="uid://ca5umakj6jbdd" path="res://Assets/Enteties/enemy.tscn" id="1_bg7ps"]
 [ext_resource type="TileSet" uid="uid://cf0smslb7urwy" path="res://Assets/TileMaps/BrickFloor.tres" id="1_thonx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://gp23ipuqr116" path="res://Assets/Sprites/Aim_1.png" id="11_qrhx0"]
 [ext_resource type="Script" path="res://Assets/Scripts/MouseCursor.gd" id="12_l3qde"]
 [ext_resource type="PackedScene" uid="uid://d4i3jeaokspt0" path="res://Assets/Weapons/Knife_pickup.tscn" id="13_tln1y"]
+[ext_resource type="AudioStream" uid="uid://l2li7mxau7m7" path="res://Assets/Sound/LudumDare OST.wav" id="14_2hw6r"]
 
 [node name="enemy_test" type="Node2D"]
 
@@ -62,3 +63,8 @@ position = Vector2(124, 64)
 texture_filter = 1
 texture = ExtResource("11_qrhx0")
 script = ExtResource("12_l3qde")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_2hw6r")
+volume_db = -18.37
+autoplay = true

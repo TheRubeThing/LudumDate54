@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2m4a618ugybp"]
+[gd_scene load_steps=8 format=3 uid="uid://c2m4a618ugybp"]
 
 [ext_resource type="Texture2D" uid="uid://pcqa00asyu8y" path="res://Assets/Sprites/Cock_Bazookat.png" id="1_3uo6h"]
 [ext_resource type="Script" path="res://Assets/Scripts/Weapon.gd" id="2_crmqn"]
 [ext_resource type="Script" path="res://Assets/Scripts/WeaponStats.gd" id="3_iijvb"]
 [ext_resource type="PackedScene" uid="uid://cq1cglxqr4hkv" path="res://Assets/Weapons/Rocket.tscn" id="4_lvfmq"]
 [ext_resource type="Texture2D" uid="uid://cbf3j6yy3gg3p" path="res://Assets/Sprites/Bulletfire.png" id="5_it608"]
+[ext_resource type="AudioStream" uid="uid://bdjgi0s05ukkc" path="res://Assets/Sound/Bazooka_Shot.wav" id="6_w3wxh"]
 
 [sub_resource type="Resource" id="Resource_jwjv0"]
 resource_local_to_scene = true
@@ -35,3 +36,6 @@ wait_time = 0.1
 position = Vector2(-4, 0)
 
 [node name="FireRate" type="Timer" parent="."]
+
+[node name="SOUND" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_w3wxh")

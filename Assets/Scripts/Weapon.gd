@@ -56,4 +56,5 @@ func shoot():
 		$Muzzle/MuzzleFlash.visible = true
 		$Muzzle/MuzzleFlash/Timer.start()
 		$FireRate.start()
+		$SOUND.play()
 		weapon_stats.ammo -= 1

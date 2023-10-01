@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dedlmvw28ns1f"]
+[gd_scene load_steps=30 format=3 uid="uid://dedlmvw28ns1f"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/enemy.gd" id="1_qt0wi"]
 [ext_resource type="PackedScene" uid="uid://mfl3dy78e6p2" path="res://Assets/Weapons/AK-47_pickup.tscn" id="2_2wl1m"]
@@ -14,6 +14,8 @@
 [ext_resource type="Theme" uid="uid://dugp6bbi0wp31" path="res://Themes/HealthBar.tres" id="11_25gx1"]
 [ext_resource type="Script" path="res://Assets/Scripts/HealthBar.gd" id="12_y5phe"]
 [ext_resource type="PackedScene" uid="uid://ch8p4ii7f4ed7" path="res://Assets/Systems/off_screen_killer.tscn" id="13_rn1ne"]
+[ext_resource type="AudioStream" uid="uid://j8hclcm2iomn" path="res://Assets/Sound/Zombie.wav" id="15_wyyie"]
+[ext_resource type="Script" path="res://Assets/Scripts/SFX Timer.gd" id="16_cuc5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dene"]
 
@@ -170,6 +172,13 @@ show_percentage = false
 
 [node name="OffScreenKiller" parent="." instance=ExtResource("13_rn1ne")]
 
+[node name="EnemySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_wyyie")
+volume_db = -5.95
+
+[node name="SFX_Timer" type="Timer" parent="EnemySound"]
+script = ExtResource("16_cuc5a")
+
 [connection signal="body_entered" from="DetectionRange" to="Brain" method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="Brain" method="_on_detection_range_body_exited"]
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
@@ -178,3 +187,4 @@ show_percentage = false
 [connection signal="hit" from="HitBox" to="Stats" method="_on_hit_box_hit"]
 [connection signal="am_dead" from="Stats" to="." method="_on_stats_am_dead"]
 [connection signal="health_updated" from="Stats" to="Healdisplay/HealthBar" method="_on_stats_health_updated"]
+[connection signal="timeout" from="EnemySound/SFX_Timer" to="EnemySound/SFX_Timer" method="_on_timeout"]
