@@ -115,4 +115,5 @@ show_percentage = false
 [connection signal="area_entered" from="HitBox" to="HitBox" method="_on_area_entered"]
 [connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
 [connection signal="hit" from="HitBox" to="Stats" method="_on_hit_box_hit"]
+[connection signal="am_dead" from="Stats" to="." method="_on_stats_am_dead"]
 [connection signal="health_updated" from="Stats" to="Healdisplay/HealthBar" method="_on_stats_health_updated"]
