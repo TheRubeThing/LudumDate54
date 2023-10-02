@@ -44,7 +44,7 @@ func action():
 
 func shoot():
 	if ready_to_fire:
-		if weapon_stats.ammo <= 0:
+		if weapon_stats.ammo == 0:
 			$Muzzle/Smoke.visible = true
 			$Muzzle/Smoke.smoke()
 			ready_to_fire = false
