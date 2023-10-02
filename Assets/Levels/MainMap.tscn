@@ -66,6 +66,7 @@ position = Vector2(2460.25, 192.5)
 shape = SubResource("RectangleShape2D_ug27g")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player_target") instance=ExtResource("3_b3vuf")]
+position = Vector2(466, 72)
 zoom = Vector2(1.1, 1.1)
 player_target = NodePath("../Player")
 
@@ -74,7 +75,7 @@ position = Vector2(466, 73)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_416tu")]
 enemy_scene = ExtResource("4_q0muv")
-spawn_interval = 2.0
+spawn_interval = 4.0
 
 [node name="SkeletonSPawner" parent="." instance=ExtResource("5_416tu")]
 enemy_scene = ExtResource("7_fbbuy")
@@ -82,7 +83,7 @@ spawn_interval = 10.0
 
 [node name="Zombie Spawn" parent="." instance=ExtResource("5_416tu")]
 enemy_scene = ExtResource("8_y8ajr")
-spawn_interval = 3.0
+spawn_interval = 2.0
 
 [node name="KnifPickup" parent="." instance=ExtResource("9_57n1n")]
 position = Vector2(412, 81)
@@ -101,5 +102,8 @@ stream = ExtResource("15_3oyih")
 volume_db = -18.37
 autoplay = true
 script = ExtResource("14_iyg5q")
+
+[node name="Monster" parent="." instance=ExtResource("4_q0muv")]
+position = Vector2(194, 62)
 
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]

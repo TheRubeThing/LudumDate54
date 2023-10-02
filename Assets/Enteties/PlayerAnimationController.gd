@@ -1,6 +1,5 @@
 extends AnimatedSprite2D
 
-
 func walk():	
 	play("Walk")
 	
