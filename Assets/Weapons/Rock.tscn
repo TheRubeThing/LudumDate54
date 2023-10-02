@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhjwndmo8tg0q"]
+
+[ext_resource type="Texture2D" uid="uid://tv3cdchenyge" path="res://Assets/Sprites/Rock.png" id="1_px3dh"]
+[ext_resource type="Script" path="res://Assets/Scripts/Weapon.gd" id="2_6qmie"]
+[ext_resource type="Script" path="res://Assets/Scripts/WeaponStats.gd" id="3_wv70p"]
+[ext_resource type="AudioStream" uid="uid://db7j3oio8fjiw" path="res://Assets/Sound/Knife.wav" id="5_84qmt"]
+
+[sub_resource type="Resource" id="Resource_jwjv0"]
+resource_local_to_scene = true
+script = ExtResource("3_wv70p")
+damage = 0
+fire_rate = 100.0
+bullet_speed = 0
+ammo = -1
+throw_damage = 10
+
+[node name="Rock" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_px3dh")
+script = ExtResource("2_6qmie")
+weapon_stats = SubResource("Resource_jwjv0")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(12, -1)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Muzzle"]
+visible = false
+
+[node name="Timer" type="Timer" parent="Muzzle/MuzzleFlash"]
+wait_time = 0.1
+
+[node name="Handle" type="Marker2D" parent="."]
+position = Vector2(-4, 0)
+
+[node name="FireRate" type="Timer" parent="."]
+
+[node name="SOUND" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_84qmt")

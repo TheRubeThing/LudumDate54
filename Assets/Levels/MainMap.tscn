@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dulorlkbkdaeb"]
+[gd_scene load_steps=20 format=3 uid="uid://dulorlkbkdaeb"]
 
 [ext_resource type="TileSet" uid="uid://cf0smslb7urwy" path="res://Assets/TileMaps/BrickFloor.tres" id="1_bhgvo"]
 [ext_resource type="PackedScene" uid="uid://cotx6ag8y33tm" path="res://Assets/Enteties/player.tscn" id="2_fvqrv"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/LoopMusic.gd" id="14_iyg5q"]
 [ext_resource type="Script" path="res://Assets/Scripts/MouseCursor.gd" id="14_ydpb5"]
 [ext_resource type="AudioStream" uid="uid://b6jcojr3rwpxe" path="res://Assets/Sound/LudumDare OST.wav" id="15_3oyih"]
+[ext_resource type="PackedScene" uid="uid://c8bevonq8cmuj" path="res://Assets/Weapons/Rock_pickup.tscn" id="15_g72hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke171"]
 size = Vector2(4815, 15)
@@ -105,5 +106,199 @@ script = ExtResource("14_iyg5q")
 
 [node name="Monster" parent="." instance=ExtResource("4_q0muv")]
 position = Vector2(194, 62)
+
+[node name="KnifPickup2" parent="." instance=ExtResource("15_g72hp")]
+position = Vector2(381, 44)
+
+[node name="RokcPickups" type="Node2D" parent="."]
+
+[node name="RockPickup" parent="RokcPickups" instance=ExtResource("15_g72hp")]
+position = Vector2(293, 448)
+
+[node name="RockPickup2" parent="RokcPickups" instance=ExtResource("15_g72hp")]
+position = Vector2(422, 523)
+
+[node name="RockPickup3" parent="RokcPickups" instance=ExtResource("15_g72hp")]
+position = Vector2(542, 427)
+
+[node name="RockPickup4" parent="RokcPickups" instance=ExtResource("15_g72hp")]
+position = Vector2(798, 375)
+
+[node name="RockPickup5" parent="RokcPickups" instance=ExtResource("15_g72hp")]
+position = Vector2(638, 619)
+
+[node name="RockPickup6" parent="RokcPickups" instance=ExtResource("15_g72hp")]
+position = Vector2(224, 752)
+
+[node name="RockPickup7" parent="RokcPickups" instance=ExtResource("15_g72hp")]
+position = Vector2(-64, 631)
+
+[node name="RokcPickups2" type="Node2D" parent="."]
+position = Vector2(-857, -215)
+
+[node name="RockPickup" parent="RokcPickups2" instance=ExtResource("15_g72hp")]
+position = Vector2(293, 448)
+
+[node name="RockPickup2" parent="RokcPickups2" instance=ExtResource("15_g72hp")]
+position = Vector2(422, 523)
+
+[node name="RockPickup3" parent="RokcPickups2" instance=ExtResource("15_g72hp")]
+position = Vector2(542, 427)
+
+[node name="RockPickup4" parent="RokcPickups2" instance=ExtResource("15_g72hp")]
+position = Vector2(798, 375)
+
+[node name="RockPickup5" parent="RokcPickups2" instance=ExtResource("15_g72hp")]
+position = Vector2(638, 619)
+
+[node name="RockPickup6" parent="RokcPickups2" instance=ExtResource("15_g72hp")]
+position = Vector2(224, 752)
+
+[node name="RockPickup7" parent="RokcPickups2" instance=ExtResource("15_g72hp")]
+position = Vector2(-64, 631)
+
+[node name="RokcPickups3" type="Node2D" parent="."]
+position = Vector2(-1467, -573)
+
+[node name="RockPickup" parent="RokcPickups3" instance=ExtResource("15_g72hp")]
+position = Vector2(293, 448)
+
+[node name="RockPickup2" parent="RokcPickups3" instance=ExtResource("15_g72hp")]
+position = Vector2(422, 523)
+
+[node name="RockPickup3" parent="RokcPickups3" instance=ExtResource("15_g72hp")]
+position = Vector2(542, 427)
+
+[node name="RockPickup4" parent="RokcPickups3" instance=ExtResource("15_g72hp")]
+position = Vector2(798, 375)
+
+[node name="RockPickup5" parent="RokcPickups3" instance=ExtResource("15_g72hp")]
+position = Vector2(638, 619)
+
+[node name="RockPickup6" parent="RokcPickups3" instance=ExtResource("15_g72hp")]
+position = Vector2(224, 752)
+
+[node name="RockPickup7" parent="RokcPickups3" instance=ExtResource("15_g72hp")]
+position = Vector2(-64, 631)
+
+[node name="RokcPickups4" type="Node2D" parent="."]
+position = Vector2(-1598, -1089)
+
+[node name="RockPickup" parent="RokcPickups4" instance=ExtResource("15_g72hp")]
+position = Vector2(293, 448)
+
+[node name="RockPickup2" parent="RokcPickups4" instance=ExtResource("15_g72hp")]
+position = Vector2(422, 523)
+
+[node name="RockPickup3" parent="RokcPickups4" instance=ExtResource("15_g72hp")]
+position = Vector2(542, 427)
+
+[node name="RockPickup4" parent="RokcPickups4" instance=ExtResource("15_g72hp")]
+position = Vector2(798, 375)
+
+[node name="RockPickup5" parent="RokcPickups4" instance=ExtResource("15_g72hp")]
+position = Vector2(638, 619)
+
+[node name="RockPickup6" parent="RokcPickups4" instance=ExtResource("15_g72hp")]
+position = Vector2(224, 752)
+
+[node name="RockPickup7" parent="RokcPickups4" instance=ExtResource("15_g72hp")]
+position = Vector2(-64, 631)
+
+[node name="RokcPickups5" type="Node2D" parent="."]
+position = Vector2(-1744, 219)
+
+[node name="RockPickup" parent="RokcPickups5" instance=ExtResource("15_g72hp")]
+position = Vector2(293, 448)
+
+[node name="RockPickup2" parent="RokcPickups5" instance=ExtResource("15_g72hp")]
+position = Vector2(422, 523)
+
+[node name="RockPickup3" parent="RokcPickups5" instance=ExtResource("15_g72hp")]
+position = Vector2(542, 427)
+
+[node name="RockPickup4" parent="RokcPickups5" instance=ExtResource("15_g72hp")]
+position = Vector2(798, 375)
+
+[node name="RockPickup5" parent="RokcPickups5" instance=ExtResource("15_g72hp")]
+position = Vector2(638, 619)
+
+[node name="RockPickup6" parent="RokcPickups5" instance=ExtResource("15_g72hp")]
+position = Vector2(224, 752)
+
+[node name="RockPickup7" parent="RokcPickups5" instance=ExtResource("15_g72hp")]
+position = Vector2(-64, 631)
+
+[node name="RokcPickups6" type="Node2D" parent="."]
+position = Vector2(977, -65)
+
+[node name="RockPickup" parent="RokcPickups6" instance=ExtResource("15_g72hp")]
+position = Vector2(293, 448)
+
+[node name="RockPickup2" parent="RokcPickups6" instance=ExtResource("15_g72hp")]
+position = Vector2(422, 523)
+
+[node name="RockPickup3" parent="RokcPickups6" instance=ExtResource("15_g72hp")]
+position = Vector2(542, 427)
+
+[node name="RockPickup4" parent="RokcPickups6" instance=ExtResource("15_g72hp")]
+position = Vector2(798, 375)
+
+[node name="RockPickup5" parent="RokcPickups6" instance=ExtResource("15_g72hp")]
+position = Vector2(638, 619)
+
+[node name="RockPickup6" parent="RokcPickups6" instance=ExtResource("15_g72hp")]
+position = Vector2(224, 752)
+
+[node name="RockPickup7" parent="RokcPickups6" instance=ExtResource("15_g72hp")]
+position = Vector2(-64, 631)
+
+[node name="RokcPickups7" type="Node2D" parent="."]
+position = Vector2(771, -875)
+
+[node name="RockPickup" parent="RokcPickups7" instance=ExtResource("15_g72hp")]
+position = Vector2(293, 448)
+
+[node name="RockPickup2" parent="RokcPickups7" instance=ExtResource("15_g72hp")]
+position = Vector2(422, 523)
+
+[node name="RockPickup3" parent="RokcPickups7" instance=ExtResource("15_g72hp")]
+position = Vector2(542, 427)
+
+[node name="RockPickup4" parent="RokcPickups7" instance=ExtResource("15_g72hp")]
+position = Vector2(798, 375)
+
+[node name="RockPickup5" parent="RokcPickups7" instance=ExtResource("15_g72hp")]
+position = Vector2(638, 619)
+
+[node name="RockPickup6" parent="RokcPickups7" instance=ExtResource("15_g72hp")]
+position = Vector2(224, 752)
+
+[node name="RockPickup7" parent="RokcPickups7" instance=ExtResource("15_g72hp")]
+position = Vector2(-64, 631)
+
+[node name="RokcPickups8" type="Node2D" parent="."]
+position = Vector2(1362, -661)
+
+[node name="RockPickup" parent="RokcPickups8" instance=ExtResource("15_g72hp")]
+position = Vector2(293, 448)
+
+[node name="RockPickup2" parent="RokcPickups8" instance=ExtResource("15_g72hp")]
+position = Vector2(422, 523)
+
+[node name="RockPickup3" parent="RokcPickups8" instance=ExtResource("15_g72hp")]
+position = Vector2(542, 427)
+
+[node name="RockPickup4" parent="RokcPickups8" instance=ExtResource("15_g72hp")]
+position = Vector2(798, 375)
+
+[node name="RockPickup5" parent="RokcPickups8" instance=ExtResource("15_g72hp")]
+position = Vector2(638, 619)
+
+[node name="RockPickup6" parent="RokcPickups8" instance=ExtResource("15_g72hp")]
+position = Vector2(224, 752)
+
+[node name="RockPickup7" parent="RokcPickups8" instance=ExtResource("15_g72hp")]
+position = Vector2(-64, 631)
 
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]

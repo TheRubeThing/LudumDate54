@@ -50,13 +50,14 @@ func shoot():
 			ready_to_fire = false
 			return
 		ready_to_fire = false
-		var bullet_instance = self.bullet.instantiate()
-		bullet_instance.set_bullet_speed(weapon_stats.bullet_speed)
-		bullet_instance.set_dmg(weapon_stats.damage)
-		get_parent().get_parent().add_child(bullet_instance)
-		bullet_instance.transform = $Muzzle.global_transform
-		$Muzzle/MuzzleFlash.visible = true
-		$Muzzle/MuzzleFlash/Timer.start()
-		$FireRate.start()
-		$SOUND.play()
-		weapon_stats.ammo = max(weapon_stats.ammo - 1, -1)
+		if bullet:
+			var bullet_instance = self.bullet.instantiate()
+			bullet_instance.set_bullet_speed(weapon_stats.bullet_speed)
+			bullet_instance.set_dmg(weapon_stats.damage)
+			get_parent().get_parent().add_child(bullet_instance)
+			bullet_instance.transform = $Muzzle.global_transform
+			$Muzzle/MuzzleFlash.visible = true
+			$Muzzle/MuzzleFlash/Timer.start()
+			$FireRate.start()
+			$SOUND.play()
+			weapon_stats.ammo = max(weapon_stats.ammo - 1, -1)
