@@ -15,7 +15,7 @@ script = ExtResource("3_oqcpw")
 damage = 10
 fire_rate = 0.1
 bullet_speed = 10
-ammo = 60
+ammo = 33
 throw_damage = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e820j"]

@@ -83,7 +83,7 @@ func _recoil(dir, amount):
 	pushback_velocity = dir * amount * push_back_factor
 
 
-func _on_hit_box_hit(dmg, dmg_pos):
+func _on_hit_box_hit(dmg, dmg_pos, _thrown):
 	var recoil_dir = (position - dmg_pos).normalized()
 	_recoil(recoil_dir, dmg)
 

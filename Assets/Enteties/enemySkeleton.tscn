@@ -108,8 +108,8 @@ _data = {
 script = ExtResource("1_ijtye")
 movement_speed = 25.0
 score = 1
-item_drops = Array[PackedScene]([ExtResource("2_vfjip"), ExtResource("3_gc6xt"), null, ExtResource("4_5380d")])
-item_drops_probablities = Array[int]([3, 1, 7, 2])
+item_drops = Array[PackedScene]([ExtResource("2_vfjip"), ExtResource("3_gc6xt"), ExtResource("4_5380d")])
+item_drops_probablities = Array[int]([1, 0, 5])
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3dene")

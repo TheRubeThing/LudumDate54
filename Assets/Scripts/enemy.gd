@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var score: int = 10
 @export var item_drops: Array[PackedScene]
 @export var item_drops_probablities: Array[int]
+@export var empty_probability: int = 10
 
 var brain: BaseBrain
 var flipped_sprite: bool
@@ -47,7 +48,7 @@ func _recoil(dir, amount):
 	pushback_velocity = dir * amount * push_back_factor
 
 
-func _on_hit_box_hit(dmg_amount, dmg_pos):
+func _on_hit_box_hit(dmg_amount, dmg_pos, _thrown):
 	var recoil_dir = (position - player.position).normalized()
 	var splatter = splatter_scene.instantiate()
 	splatter.position = dmg_pos
@@ -55,13 +56,16 @@ func _on_hit_box_hit(dmg_amount, dmg_pos):
 	_recoil(recoil_dir, dmg_amount)
 
 
-func _on_stats_am_dead():
-	drop_item()
+func _on_stats_am_dead(_hurt_by_thrown):
+	if _hurt_by_thrown:
+		drop_item(0)
+	else:
+		drop_item(empty_probability)
 	Globals.add_to_score(score)
 	queue_free() # Replace with function body.
 	
-func drop_item():
-	var total_prob = 0
+func drop_item(_empty_probability):
+	var total_prob = _empty_probability
 	for prob in item_drops_probablities:
 		total_prob += prob
 	var dice_roll = randi() % total_prob
