@@ -3,10 +3,12 @@ extends Node
 enum modes { GAME_RUNNING, START_MENU, PAUSE_MENU, GAME_OVER }
 
 signal mode_changed
+signal score_updated(new_score)
 
 var current_mode : modes
 var player
 var player_stats
+var _score: int = 0
 
 func _ready():
 	start_menu()
@@ -23,6 +25,7 @@ func start_menu():
 	
 func start_game():
 	set_mode(modes.GAME_RUNNING)
+	score_updated.emit(_score)
 	unpause_game()
 
 
@@ -60,3 +63,8 @@ func pause_game():
 
 func unpause_game():
 	get_tree().paused = false
+	
+func add_to_score(score: int):
+	_score += score
+	score_updated.emit(_score)
+	

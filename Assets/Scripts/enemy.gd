@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var dmg: int = 10
 @export var push_back_factor: int = 100
 @export var pushback_decay: float = 0.6
+@export var score: int = 10
 @export var item_drops: Array[PackedScene]
 @export var item_drops_probablities: Array[int]
 
@@ -56,6 +57,7 @@ func _on_hit_box_hit(dmg_amount, dmg_pos):
 
 func _on_stats_am_dead():
 	drop_item()
+	Globals.add_to_score(score)
 	queue_free() # Replace with function body.
 	
 func drop_item():

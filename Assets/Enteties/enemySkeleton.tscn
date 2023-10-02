@@ -107,6 +107,7 @@ _data = {
 [node name="Skeleton" type="CharacterBody2D" groups=["ENEMIES"]]
 script = ExtResource("1_ijtye")
 movement_speed = 25.0
+score = 1
 item_drops = Array[PackedScene]([ExtResource("2_vfjip"), ExtResource("3_gc6xt"), null, ExtResource("4_5380d")])
 item_drops_probablities = Array[int]([3, 1, 7, 2])
 

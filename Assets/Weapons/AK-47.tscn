@@ -1,13 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://doohlksxvxo1u"]
+[gd_scene load_steps=15 format=3 uid="uid://doohlksxvxo1u"]
 
 [ext_resource type="Texture2D" uid="uid://j2vbprvvggm7" path="res://Assets/Sprites/Assault_Rifle.png" id="1_p88gt"]
 [ext_resource type="Script" path="res://Assets/Scripts/Weapon.gd" id="2_w16vj"]
 [ext_resource type="Script" path="res://Assets/Scripts/WeaponStats.gd" id="3_oqcpw"]
 [ext_resource type="PackedScene" uid="uid://bgb3mt54qgqu8" path="res://Assets/Weapons/Bullet.tscn" id="4_oospl"]
-[ext_resource type="Texture2D" uid="uid://cbf3j6yy3gg3p" path="res://Assets/Sprites/Bulletfire.png" id="5_5hdan"]
+[ext_resource type="Texture2D" uid="uid://bfnjhxhxvffaq" path="res://Assets/Sprites/Bulletfire.png" id="5_5hdan"]
+[ext_resource type="AudioStream" uid="uid://bnck2t0m4u748" path="res://Assets/Sound/AK_Shot.wav" id="6_u5t8k"]
 [ext_resource type="Texture2D" uid="uid://cfv3w58rlca5w" path="res://Assets/Sprites/Sprite Sheets/Smoke_Sheet.png" id="6_xnq76"]
 [ext_resource type="Script" path="res://Assets/Weapons/Smoke.gd" id="7_f8vu4"]
-[ext_resource type="AudioStream" uid="uid://bnck2t0m4u748" path="res://Assets/Sound/AK_Shot.wav" id="6_u5t8k"]
 
 [sub_resource type="Resource" id="Resource_6l48g"]
 resource_local_to_scene = true
@@ -15,7 +15,7 @@ script = ExtResource("3_oqcpw")
 damage = 10
 fire_rate = 0.1
 bullet_speed = 10
-ammo = 3
+ammo = 60
 throw_damage = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e820j"]
@@ -87,4 +87,5 @@ position = Vector2(-4, 0)
 [node name="SOUND" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_u5t8k")
 volume_db = -8.62
+
 [connection signal="animation_finished" from="Muzzle/Smoke" to="Muzzle/Smoke" method="_on_animation_finished"]
