@@ -16,7 +16,7 @@ damage = 10
 fire_rate = 0.1
 bullet_speed = 10
 ammo = 33
-throw_damage = 0
+throw_damage = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e820j"]
 atlas = ExtResource("6_xnq76")

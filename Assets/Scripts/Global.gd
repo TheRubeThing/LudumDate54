@@ -10,6 +10,8 @@ var player
 var cursor
 var player_stats
 var _score: int = 0
+var high_scores = [0, 0, 0, 0, 0]
+var persistent_data = {}
 
 func _ready():
 	start_menu()
@@ -21,6 +23,7 @@ func _process(delta):
 
 func start_menu():
 	set_mode(modes.START_MENU)
+	load_game()
 	show_mouse()
 	pause_game()
 	
@@ -34,6 +37,8 @@ func start_game():
 
 func game_over():
 	show_mouse()
+	update_high_score()
+	save_game()
 	set_mode(modes.GAME_OVER)
 	pause_game()
 	
@@ -45,6 +50,8 @@ func pause_menu():
 	
 	
 func exit_game():
+	update_high_score()
+	save_game()
 	get_tree().quit()
 
 
@@ -82,3 +89,43 @@ func hide_mouse():
 	if self.cursor:
 		self.cursor.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+func update_high_score():
+	for index in high_scores.size():
+		if _score < high_scores[index]:
+			continue
+		high_scores.insert(index, _score)
+		high_scores.pop_back()
+		break
+	
+func load_game():
+	if not FileAccess.file_exists("user://savegame.save"):
+		return
+	
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.READ)
+	while save_game.get_position() < save_game.get_length():
+		var json_string = save_game.get_line()
+		
+		# Creates the helper class to interact with JSON
+		var json = JSON.new()
+
+		# Check if there is any error while parsing the JSON string, skip in case of failure
+		var parse_result = json.parse(json_string)
+		if not parse_result == OK:
+			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+			continue
+
+		# Get the data from the JSON object
+		var node_data = json.get_data()
+		high_scores.clear()
+		for value in node_data["high_scores"]:
+			high_scores.append(int(value))
+		
+
+func save_game():
+	persistent_data["high_scores"] = high_scores
+	
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	save_game.store_line(JSON.stringify(persistent_data))
+	print("Saved " + str(persistent_data))
+	save_game.close()

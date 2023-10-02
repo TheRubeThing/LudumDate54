@@ -88,5 +88,5 @@ func _on_hit_box_hit(dmg, dmg_pos, _thrown):
 	_recoil(recoil_dir, dmg)
 
 
-func _on_stats_am_dead():
+func _on_stats_am_dead(_thrown):
 	Globals.game_over() # Replace with function body.

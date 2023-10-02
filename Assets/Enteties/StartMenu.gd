@@ -16,6 +16,7 @@ func _process(delta):
 
 
 func _on_mode_changed():
+	$HighScore._process(0)
 	if Globals.get_mode() == modes.START_MENU:
 		visible = true
 	else:
