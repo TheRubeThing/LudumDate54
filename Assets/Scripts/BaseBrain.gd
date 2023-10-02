@@ -4,6 +4,9 @@ extends Node
 
 var _target: Node2D
 
+func _ready():
+	_target = Globals.player
+
 ## Take the current position of the owner of the brain and
 ## returns a direction in which to move next
 func think(current_local_position) -> Vector2:

@@ -106,7 +106,8 @@ _data = {
 
 [node name="Skeleton" type="CharacterBody2D" groups=["ENEMIES"]]
 script = ExtResource("1_ijtye")
-movement_speed = 25.0
+movement_speed = 80.0
+dmg = 5
 score = 1
 item_drops = Array[PackedScene]([ExtResource("2_vfjip"), ExtResource("3_gc6xt"), ExtResource("4_5380d")])
 item_drops_probablities = Array[int]([1, 0, 5])
@@ -146,7 +147,7 @@ shape = SubResource("RectangleShape2D_6e77v")
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("10_wh335")
-max_health = 20
+max_health = 15
 
 [node name="Healdisplay" type="Node2D" parent="."]
 
@@ -172,6 +173,7 @@ value = 80.0
 show_percentage = false
 
 [node name="OffScreenKiller" parent="." instance=ExtResource("13_a5qd7")]
+kill_distance = 6000
 
 [node name="EnemySound" parent="." instance=ExtResource("15_023os")]
 stream = ExtResource("16_mhk0y")

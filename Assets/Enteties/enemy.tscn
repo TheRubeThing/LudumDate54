@@ -106,6 +106,8 @@ _data = {
 
 [node name="Monster" type="CharacterBody2D" groups=["ENEMIES"]]
 script = ExtResource("1_43sha")
+movement_speed = 30.0
+push_back_factor = 50
 score = 1
 item_drops = Array[PackedScene]([ExtResource("2_7phmd"), ExtResource("3_0hqix"), ExtResource("4_temu5")])
 item_drops_probablities = Array[int]([5, 1, 8])
@@ -174,6 +176,7 @@ value = 80.0
 show_percentage = false
 
 [node name="OffScreenKiller" parent="." instance=ExtResource("13_rfrmw")]
+kill_distance = 6000
 
 [node name="EnemySound" parent="." instance=ExtResource("15_5shjs")]
 stream = ExtResource("16_ugegh")

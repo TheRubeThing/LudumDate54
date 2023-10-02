@@ -21,5 +21,6 @@ texture_filter = 1
 texture = ExtResource("3_1j166")
 
 [node name="OffScreenKiller" parent="." instance=ExtResource("4_r0d7w")]
+kill_distance = 6000
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

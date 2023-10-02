@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dulorlkbkdaeb"]
+[gd_scene load_steps=19 format=3 uid="uid://dulorlkbkdaeb"]
 
 [ext_resource type="TileSet" uid="uid://cf0smslb7urwy" path="res://Assets/TileMaps/BrickFloor.tres" id="1_bhgvo"]
 [ext_resource type="PackedScene" uid="uid://cotx6ag8y33tm" path="res://Assets/Enteties/player.tscn" id="2_fvqrv"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dedlmvw28ns1f" path="res://Assets/Enteties/enemyZombie.tscn" id="8_y8ajr"]
 [ext_resource type="PackedScene" uid="uid://d4i3jeaokspt0" path="res://Assets/Weapons/Knife_pickup.tscn" id="9_57n1n"]
 [ext_resource type="Texture2D" uid="uid://gp23ipuqr116" path="res://Assets/Sprites/Aim_1.png" id="13_4g3hc"]
+[ext_resource type="Script" path="res://Assets/Scripts/LoopMusic.gd" id="14_iyg5q"]
 [ext_resource type="Script" path="res://Assets/Scripts/MouseCursor.gd" id="14_ydpb5"]
 [ext_resource type="AudioStream" uid="uid://b6jcojr3rwpxe" path="res://Assets/Sound/LudumDare OST.wav" id="15_3oyih"]
 
@@ -65,6 +66,7 @@ position = Vector2(2460.25, 192.5)
 shape = SubResource("RectangleShape2D_ug27g")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player_target") instance=ExtResource("3_b3vuf")]
+zoom = Vector2(1.1, 1.1)
 player_target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_fvqrv")]
@@ -72,14 +74,15 @@ position = Vector2(466, 73)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_416tu")]
 enemy_scene = ExtResource("4_q0muv")
+spawn_interval = 2.0
 
 [node name="SkeletonSPawner" parent="." instance=ExtResource("5_416tu")]
 enemy_scene = ExtResource("7_fbbuy")
-spawn_interval = 2.0
+spawn_interval = 10.0
 
 [node name="Zombie Spawn" parent="." instance=ExtResource("5_416tu")]
 enemy_scene = ExtResource("8_y8ajr")
-spawn_interval = 5.0
+spawn_interval = 3.0
 
 [node name="KnifPickup" parent="." instance=ExtResource("9_57n1n")]
 position = Vector2(412, 81)
@@ -97,3 +100,6 @@ script = ExtResource("14_ydpb5")
 stream = ExtResource("15_3oyih")
 volume_db = -18.37
 autoplay = true
+script = ExtResource("14_iyg5q")
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

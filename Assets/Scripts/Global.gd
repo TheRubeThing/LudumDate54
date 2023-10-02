@@ -31,6 +31,7 @@ func start_menu():
 func start_game():
 	set_mode(modes.GAME_RUNNING)
 	hide_mouse()
+	_score = 0
 	score_updated.emit(_score)
 	unpause_game()
 
@@ -92,6 +93,8 @@ func hide_mouse():
 	
 func update_high_score():
 	for index in high_scores.size():
+		if _score == high_scores[index]:
+			break
 		if _score < high_scores[index]:
 			continue
 		high_scores.insert(index, _score)
