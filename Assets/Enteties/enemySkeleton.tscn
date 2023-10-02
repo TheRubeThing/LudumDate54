@@ -110,7 +110,8 @@ movement_speed = 80.0
 dmg = 2
 score = 1
 item_drops = Array[PackedScene]([ExtResource("2_vfjip"), ExtResource("3_gc6xt"), ExtResource("4_5380d")])
-item_drops_probablities = Array[int]([1, 0, 5])
+item_drops_probablities = Array[int]([2, 1, 7])
+empty_probability = 20
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3dene")

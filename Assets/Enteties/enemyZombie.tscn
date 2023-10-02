@@ -109,7 +109,7 @@ push_back_factor = 20
 score = 1
 item_drops = Array[PackedScene]([ExtResource("2_2wl1m"), ExtResource("3_3sqai")])
 item_drops_probablities = Array[int]([5, 15])
-empty_probability = 20
+empty_probability = 40
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3dene")

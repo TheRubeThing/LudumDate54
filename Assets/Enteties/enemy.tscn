@@ -111,7 +111,7 @@ dmg = 5
 push_back_factor = 50
 score = 1
 item_drops = Array[PackedScene]([ExtResource("2_7phmd"), ExtResource("3_0hqix"), ExtResource("4_temu5")])
-item_drops_probablities = Array[int]([5, 1, 8])
+item_drops_probablities = Array[int]([9, 1, 11])
 empty_probability = 20
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
